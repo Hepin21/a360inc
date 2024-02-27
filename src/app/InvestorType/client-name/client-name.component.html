@@ -1,0 +1,12 @@
+<div class="flex flex-row flex-wrap">
+        <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-8"
+        *ngFor="let client of clients" routerLinkActive="active" routerLink="/milestone" (click)="selectClient(client.name)">
+                <p-card
+                        [style]="{'width':'12rem','height':'5rem', 'margin-right': '1rem','display': 'flex', 'justify-content': 'center', 'align-items': 'center'}">
+                        <p-avatar class="flex-shrink-0 avatar-sm" shape="circle" size="normal" styleClass="bg-light">
+                                <i class="pi pi-check fs-24"></i>
+                        </p-avatar>
+                        <span>{{client.name}}</span>
+                </p-card>
+        </div>
+</div> 

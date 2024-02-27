@@ -1,0 +1,12 @@
+<div class="flex flex-row flex-wrap">
+        <div class="flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round m-8"
+        *ngFor="let milestone of milestones" routerLinkActive="active" routerLink="/dil-result" (click)="selectedMilestone(milestone.name)">
+                <p-card
+                        [style]="{'width':'12rem','height':'5rem', 'margin-right': '1rem','display': 'flex', 'justify-content': 'center', 'align-items': 'center'}">
+                        <p-avatar class="flex-shrink-0 avatar-sm" shape="circle" size="normal" styleClass="bg-light">
+                                <i class="pi pi-check fs-24"></i>
+                        </p-avatar>
+                        <span>{{milestone.name}}</span>
+                </p-card>
+        </div>
+</div> 
