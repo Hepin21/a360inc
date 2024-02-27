@@ -14,7 +14,6 @@ import { LoginComponent } from './login/login.component';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
 import { FeeSchedulesComponent } from './fee-schedules/fee-schedules.component';
-import { ForeclosureComponent } from './foreclosure/foreclosure.component';
 import { DILComponent } from './dil/dil.component';
 import { BadgeModule } from 'primeng/badge';
 import { CardModule } from 'primeng/card';
@@ -31,7 +30,24 @@ import { ProgressQueueComponent } from './progress-queue/progress-queue.componen
 import { DilCardComponent } from './dil-card/dil-card.component';
 import { HomeComponent } from './home/home.component';
 import { FcCardComponent } from './fc-card/fc-card.component';
-import { ForeTypeComponent } from './foreclosure/fore-type/fore-type.component';
+import { ConventionalComponent } from './DilComponent/conventional/conventional.component';
+import { ConvCardComponent } from './DilComponent/conv-card/conv-card.component';
+import { FnmaComponent } from './InvestorType/fnma/fnma.component';
+import { ForeClosureComponent } from './fore-closure/fore-closure.component';
+import { ClientNameComponent } from './InvestorType/client-name/client-name.component';
+import { MileStoneComponent } from './InvestorType/mile-stone/mile-stone.component';
+import { MileCardComponent } from './InvestorType/mile-card/mile-card.component';
+import { DilResultComponent } from './Result/dil-result/dil-result.component';
+import { ResultCardComponent } from './Result/result-card/result-card.component';
+import { ClientTypeComponent } from './ForeClosure/client-type/client-type.component';
+import { LoanCardComponent } from './ForeClosure/LoanType/loan-card/loan-card.component';
+import { LoanComponent } from './ForeClosure/LoanType/loan/loan.component';
+import { InvestorCardComponent } from './ForeClosure/Investor/investor-card/investor-card.component';
+import { InvestorTypeComponent } from './ForeClosure/Investor/investor-type/investor-type.component';
+import { ClientCardComponent } from './ForeClosure/client-card/client-card.component';
+import { MilestoneCardComponent } from './ForeClosure/MileStone/milestone-card/milestone-card.component';
+import { MilestoneTypeComponent } from './ForeClosure/MileStone/milestone-type/milestone-type.component';
+import { ForResultComponent } from './ForeClosure/for-result/for-result.component';
 
 
 
@@ -40,16 +56,33 @@ import { ForeTypeComponent } from './foreclosure/fore-type/fore-type.component';
     AppComponent,
     SideNavComponent,
     HeaderComponent,
+    LoanComponent,
     LoginComponent,
     FeeSchedulesComponent,
-    ForeclosureComponent,
     DILComponent,
     LookupCardComponent,
     ProgressQueueComponent,
     DilCardComponent,
     HomeComponent,
     FcCardComponent,
-    ForeTypeComponent,
+    ConventionalComponent,
+    ConvCardComponent,
+    FnmaComponent,
+    ForeClosureComponent,
+    
+    ClientNameComponent,
+    MileStoneComponent,
+    MileCardComponent,
+    DilResultComponent,
+    ResultCardComponent,
+    ClientTypeComponent,
+    LoanCardComponent,
+    InvestorCardComponent,
+    InvestorTypeComponent,
+    ClientCardComponent,
+    MilestoneCardComponent,
+    MilestoneTypeComponent,
+    ForResultComponent,
   ],
   imports: [
     BrowserModule,

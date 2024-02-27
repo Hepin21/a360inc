@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { StateService } from './state.service'
+import { StateService } from 'src/app/Services/state.service'
+import { ForeclosuretypeService } from 'src/app/Services/foreclosuretype.service';
 
 @Component({
   selector: 'app-fc-card',
@@ -9,21 +10,29 @@ import { StateService } from './state.service'
 })
 export class FcCardComponent {
 
-  sState: string[]=[];
-  getselectState(){
-    this.sState = this.lservice.selectState()
-  }
-  constructor(private lservice: StateService){
+  foretypes=[{name:'Judicial'},{name:'Non-Judicial'}];
 
+  constructor(private StateService: StateService, private ForeclosuretypeService:ForeclosuretypeService ) { }
+  selectForeClosure(foreclosuretypeName: string) {
+    this.ForeclosuretypeService.setSelectedForeclosuretype(foreclosuretypeName);
   }
+  selectState(stateName: string) {
+    this.StateService.setSelectedState(stateName);}
+  // sState: string[]=[];
+  // getselectState(){
+  //   this.sState = this.lservice.selectState()
+  // }
+  // constructor(private lservice: StateService){
 
-  toggleFullScreen() {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen(); // 
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen(); 
-      }
-    }
-  }
+  // }
+
+  // toggleFullScreen() {
+  //   if (!document.fullscreenElement) {
+  //     document.documentElement.requestFullscreen(); // 
+  //   } else {
+  //     if (document.exitFullscreen) {
+  //       document.exitFullscreen(); 
+  //     }
+  //   }
+  // }
 }
