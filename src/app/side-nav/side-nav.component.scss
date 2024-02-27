@@ -1,0 +1,12 @@
+.sidebar.expanded .menu-name {
+  display: block;
+  /* Show menu names when sidebar is expanded */
+}
+
+.avatar-name-container {
+  display: flex;
+  align-items: center; // Align items vertically
+  .name {
+      margin-left: 8px; // Adjust spacing between avatar and name
+  }
+}

@@ -1,0 +1,28 @@
+<form class="container" onsubmit="onSubmit(event)" novalidate>
+        <div>
+                <h3>Welcome Back</h3>
+                <div class='greeting'>Sign in to continue to Fee Schedule.</div>
+        </div>
+        <div>
+                <div>
+                        <label for='username' minlength="4">Email</label>
+                        <span class="error" aria-live="polite"></span>
+                </div>
+                <input id='username' placeholder="Enter email" type="text" required />
+        </div>
+        <div>
+                <div>
+                        <label for='password'>Password</label>
+                        <span class="error" aria-live="polite"></span>
+                </div>
+                <input id='password' placeholder="Enter Password" type='password' required minlength="8" />
+                <a href='#'>Forgot your password?</a>
+                <label><input type="checkbox" ng-model="rememberMe"> Remember me</label>
+        </div>
+        <button type="submit">
+                Login
+        </button>
+        <span aria-live="assertive" id="js-loadingMsg" class="sr-only">
+                <!-- Use JavaScript to inject the the loading message -->
+        </span>
+</form>

@@ -1,0 +1,71 @@
+<p-sidebar [style]="{width: '250px'}" [(visible)]="sidebarVisible">
+    <ng-template pTemplate="headless">
+        <div class="navbar-brand-box">
+            <a routerLink="/" class="logo logo-dark" href="#/">
+                <div class="col-12 md-col-4">
+                    <div class="avatar-name-container">
+                        <p-avatar label="UN" styleClass="mr-2" size="large" shape="circle"></p-avatar>
+                        <div class="header">
+                            <div class="name">User Name</div>
+                        </div>
+                    </div>
+                </div>
+            </a>            
+        </div>
+        <div id="scrollbar">
+            <div class="container-fluid">
+                <div id="two-column-menu"></div>
+                <ul id="navbar-nav" class="list-unstyled navbar-nav">
+                    <li class="menu-title">
+                        <span data-key="t-menu">Menu</span>
+                    </li>
+                    <li class="nav-item">
+                         <a routerLink="/">
+                            <i class="icon nav-icon ri-home-4-fill"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a routerLink="/auth/login">
+                            <i class="icon nav-icon ri-logout-circle-line"></i>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ng-template>
+</p-sidebar>
+<div [style]="{'height':'100%'}">
+    <p-button (click)="sidebarVisible = true" icon="pi pi-bars"></p-button>
+</div>
+
+<!-- your-component .component.html -->
+
+<!-- <p-menubar [model]="menuItems" styleClass="horizontal-menubar"></p-menubar>
+
+<p-button (click)="sidebarVisible = !sidebarVisible" icon="pi pi-arrow-right"></p-button> -->
+
+<!-- <div _ngcontent-mgp-c37="" class="navbar-brand-box">
+    <a _ngcontent-mgp-c37="" routerlink="/" class="logo logo-dark" href="#/">
+        <span _ngcontent-mgp-c37="" class="logo-sm"> HP </span>
+        <span _ngcontent-mgp-c37="" class="logo-lg">
+            <div _ngcontent-mgp-c37="" class="header">
+                <div _ngcontent-mgp-c37="" class="avatar dark"> HP </div>
+                <div _ngcontent-mgp-c37="" class="name">Hepin Ponkiya</div>
+            </div>
+        </span>
+    </a>
+    <a _ngcontent-mgp-c37="" routerlink="/" class="logo logo-light" href="#/">
+        <span _ngcontent-mgp-c37="" class="logo-sm"> HP </span><span _ngcontent-mgp-c37="" class="logo-lg">
+            <div _ngcontent-mgp-c37="" class="header">
+                <div _ngcontent-mgp-c37="" class="avatar"> HP </div>
+                <div _ngcontent-mgp-c37="" class="name">Hepin Ponkiya</div>
+            </div>
+        </span>
+    </a>
+    <button _ngcontent-mgp-c37="" type="button" id="vertical-hover"
+        class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover">
+        <i _ngcontent-mgp-c37="" class="ri-record-circle-line"></i>
+    </button>
+</div> -->
