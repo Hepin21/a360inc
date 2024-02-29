@@ -49,6 +49,7 @@ import { MilestoneCardComponent } from './ForeClosure/MileStone/milestone-card/m
 import { MilestoneTypeComponent } from './ForeClosure/MileStone/milestone-type/milestone-type.component';
 import { ForResultComponent } from './ForeClosure/for-result/for-result.component';
 import { PanelModule } from 'primeng/panel';
+import { ForResultCardComponent } from './ForeClosure/for-result-card/for-result-card.component';
 
 
 
@@ -83,6 +84,7 @@ import { PanelModule } from 'primeng/panel';
     MilestoneCardComponent,
     MilestoneTypeComponent,
     ForResultComponent,
+    ForResultCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,8 +1,6 @@
 <p-card>
     <div class="flex flex-row flex-wrap">
-        <div *ngFor="let fee of fees"
-            class="flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round mx-8 my-5"
-            routerLinkActive="active" routerLink="/dil-result">
+        <div *ngFor="let fee of fees" class="flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round mx-8 my-5">
             <p-card
                 [style]="{'width':'13rem','height':'6rem', 'margin-right': '1rem','display': 'flex', 'justify-content': 'center', 'align-items': 'center'}">
                 <h6>{{ fee.abbreviation }}</h6>
