@@ -11,6 +11,8 @@ export class ResultCardComponent {
     { abbreviation: 'ALLOWABLE%', name: '100% Completed' },
     // { abbreviation: 'AR', name: 'Arkansas' },
     { abbreviation: 'MILESTONE ALLOWABLE AMOUNT', name: '$400.00' },
+    { abbreviation: 'CURRENT BILLABLE AMOUNT', name: '$500.00' },
+    { abbreviation: 'AMOUNT THAT SHOULD HAVE ALREADY BEEN BILLED', name: '$0.00' },
     // { abbreviation: 'CA', name: 'California' }
   ];
 }

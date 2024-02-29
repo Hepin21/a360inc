@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { InputTextModule } from 'primeng/inputtext';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ButtonModule } from 'primeng/button';
@@ -48,6 +48,7 @@ import { ClientCardComponent } from './ForeClosure/client-card/client-card.compo
 import { MilestoneCardComponent } from './ForeClosure/MileStone/milestone-card/milestone-card.component';
 import { MilestoneTypeComponent } from './ForeClosure/MileStone/milestone-type/milestone-type.component';
 import { ForResultComponent } from './ForeClosure/for-result/for-result.component';
+import { PanelModule } from 'primeng/panel';
 
 
 
@@ -69,7 +70,6 @@ import { ForResultComponent } from './ForeClosure/for-result/for-result.componen
     ConvCardComponent,
     FnmaComponent,
     ForeClosureComponent,
-    
     ClientNameComponent,
     MileStoneComponent,
     MileCardComponent,
@@ -100,9 +100,11 @@ import { ForResultComponent } from './ForeClosure/for-result/for-result.componen
     MenubarModule,
     CardModule,
     StepsModule,
+    InputTextModule,
     AccordionModule,
     ToastModule,
     MenuModule,
+    PanelModule,
     BrowserAnimationsModule
   ],
   providers: [],

@@ -7,6 +7,10 @@ import { StateService } from 'src/app/Services/state.service';
   styleUrls: ['./fore-closure.component.scss']
 })
 export class ForeClosureComponent {
+  
+  value: string | undefined;
+
+  
   states = [
     { abbreviation: 'AK', name: 'Alaska' },
     { abbreviation: 'AL', name: 'Alabama' },

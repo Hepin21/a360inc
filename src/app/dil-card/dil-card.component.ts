@@ -15,9 +15,7 @@ selectLoan(loanName: string) {
 }
      ngOnInit(): void {
      }
-  
-  
-  
+
   // loans=[{name:'Conventional Insured/PMI'},{name:'FHA'},{name:"USDA"},{name:'VA'}];
   // sLoan: string[]=[];
   // getselectLoan(){
