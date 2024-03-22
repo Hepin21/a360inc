@@ -27,4 +27,6 @@ export class FnmaComponent {
       this.selectedInvestor = investorName;
     });
   }
+    //This Code is Use for Header title Change
+    headerTitle: string = 'DIL Fee Schedule';
 }

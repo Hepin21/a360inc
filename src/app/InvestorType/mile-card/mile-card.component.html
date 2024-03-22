@@ -1,8 +1,8 @@
 <div class="flex flex-row flex-wrap">
         <div class="flex align-items-center justify-content-center w-2rem h-2rem bg-primary font-bold border-round mx-8 my-5"
         *ngFor="let milestone of milestones" routerLinkActive="active" routerLink="/dil-result" (click)="selectedMilestone(milestone.name)">
-                <p-card
-                        [style]="{'width':'11rem','height':'5rem', 'margin-right': '1rem','display': 'flex', 'justify-content': 'center', 'align-items': 'center'}">
+                <p-card class="shadow-2 hover:shadow-8 surface-overlay"
+                        [style]="{'width':'11rem','height':'5rem', 'display': 'flex', 'justify-content': 'center', 'align-items': 'center'}">
                         <p-avatar class="flex-shrink-0 avatar-sm" shape="circle" size="normal" styleClass="bg-light">
                                 <i class="pi pi-check fs-24"></i>
                         </p-avatar>

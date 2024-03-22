@@ -1,21 +1,7 @@
 <div style="display: flex;">
-        <app-side-nav></app-side-nav>
         <div style="flex-grow: 1;">
-            <p-toolbar [style]="{'width':'100%'}" styleClass="bg-blue-500 shadow-2"
-                [style]="{'background-image': 'linear-gradient(to right, var(--blue-500), var(--blue-800))' }">
-                <ng-template pTemplate="start">
-                    <img routerLink="/" [style]="{ width: '150px' }"
-                        src="https://beta-feeschedule.outamationlabs.com/assets/images/a360inc-logo.png" />
-                    <p-divider layout="vertical"></p-divider>
-                    <span _ngcontent-rnb-c36="" class="title"><b>Foreclosure Fee Schedule</b></span>
-                </ng-template>
-                <ng-template pTemplate="end">
-                    <button (click)="toggleFullScreen()"
-                        class="p-link inline-flex justify-content-center align-items-center text-white h-3rem w-3rem border-circle hover:bg-white-alpha-10 transition-all transition-duration-200">
-                        <i class="pi pi-window-maximize text-2xl"></i>
-                    </button>
-                </ng-template>
-            </p-toolbar>
+            
+            <app-header [title]="headerTitle"></app-header>
             <div class="content mt-3">
                 <div class="grid nested-grid">
                     <div class="col-8">

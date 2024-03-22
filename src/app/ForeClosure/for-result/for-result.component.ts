@@ -8,16 +8,15 @@ import { MilestoneService } from 'src/app/Services/milestone.service';
 @Component({
   selector: 'app-for-result',
   templateUrl: './for-result.component.html',
-  styleUrls: ['./for-result.component.scss']
+  styleUrls: ['./for-result.component.scss'],
 })
 export class ForResultComponent {
-
   toggleFullScreen() {
     if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen(); // 
+      document.documentElement.requestFullscreen(); //
     } else {
       if (document.exitFullscreen) {
-        document.exitFullscreen(); 
+        document.exitFullscreen();
       }
     }
   }
@@ -52,4 +51,7 @@ export class ForResultComponent {
       this.selectedMilestone = milestoneName;
     });
   }
+
+  //This Code is Use for Header title Change
+  headerTitle: string = 'Foreclosure Fee Schedule';
 }

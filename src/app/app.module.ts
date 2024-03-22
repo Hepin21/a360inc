@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ApplicationRef, DoBootstrap, Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InputTextModule } from 'primeng/inputtext';
@@ -10,14 +10,12 @@ import { HeaderComponent } from './header/header.component';
 import { SidebarModule } from 'primeng/sidebar';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DividerModule } from 'primeng/divider';
-import { LoginComponent } from './login/login.component';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
 import { FeeSchedulesComponent } from './fee-schedules/fee-schedules.component';
-import { DILComponent } from './dil/dil.component';
+import { DILComponent } from './DilComponent/dil/dil.component';
 import { BadgeModule } from 'primeng/badge';
 import { CardModule } from 'primeng/card';
-import { LookupCardComponent } from './lookup-card/lookup-card.component';
 import { StepsModule } from 'primeng/steps';
 import { AccordionModule } from 'primeng/accordion';
 import { ToastModule } from 'primeng/toast';
@@ -26,19 +24,16 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
-import { ProgressQueueComponent } from './progress-queue/progress-queue.component';
-import { DilCardComponent } from './dil-card/dil-card.component';
+import { DilCardComponent } from './DilComponent/dil-card/dil-card.component';
 import { HomeComponent } from './home/home.component';
-import { FcCardComponent } from './fc-card/fc-card.component';
+import { FcCardComponent } from './ForeClosure/fc-card/fc-card.component';
 import { ConventionalComponent } from './DilComponent/conventional/conventional.component';
 import { ConvCardComponent } from './DilComponent/conv-card/conv-card.component';
 import { FnmaComponent } from './InvestorType/fnma/fnma.component';
-import { ForeClosureComponent } from './fore-closure/fore-closure.component';
+import { ForeClosureComponent } from './ForeClosure/fore-closure/fore-closure.component';
 import { ClientNameComponent } from './InvestorType/client-name/client-name.component';
 import { MileStoneComponent } from './InvestorType/mile-stone/mile-stone.component';
 import { MileCardComponent } from './InvestorType/mile-card/mile-card.component';
-import { DilResultComponent } from './Result/dil-result/dil-result.component';
-import { ResultCardComponent } from './Result/result-card/result-card.component';
 import { ClientTypeComponent } from './ForeClosure/client-type/client-type.component';
 import { LoanCardComponent } from './ForeClosure/LoanType/loan-card/loan-card.component';
 import { LoanComponent } from './ForeClosure/LoanType/loan/loan.component';
@@ -50,8 +45,10 @@ import { MilestoneTypeComponent } from './ForeClosure/MileStone/milestone-type/m
 import { ForResultComponent } from './ForeClosure/for-result/for-result.component';
 import { PanelModule } from 'primeng/panel';
 import { ForResultCardComponent } from './ForeClosure/for-result-card/for-result-card.component';
-
-
+import { createCustomElement } from '@angular/elements';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
+import { ResultCardComponent } from './DilComponent/result-card/result-card.component';
+import { DilResultComponent } from './DilComponent/dil-result/dil-result.component';
 
 @NgModule({
   declarations: [
@@ -59,11 +56,8 @@ import { ForResultCardComponent } from './ForeClosure/for-result-card/for-result
     SideNavComponent,
     HeaderComponent,
     LoanComponent,
-    LoginComponent,
     FeeSchedulesComponent,
     DILComponent,
-    LookupCardComponent,
-    ProgressQueueComponent,
     DilCardComponent,
     HomeComponent,
     FcCardComponent,
@@ -111,5 +105,22 @@ import { ForResultCardComponent } from './ForeClosure/for-result-card/for-result
   ],
   providers: [],
   bootstrap: [AppComponent]
+  // bootstrap: [],
+  // schemas: [
+  //   CUSTOM_ELEMENTS_SCHEMA
+  // ],
 })
 export class AppModule { }
+// export class AppModule implements DoBootstrap{ 
+
+//   constructor(private injector: Injector){}
+
+//   ngDoBootstrap(appRef : ApplicationRef): void {
+//       const webComp = createCustomElement(DilResultComponent,{injector: this.injector});
+//       customElements.define('add-webc', webComp);   //*Use for Create and Register Custom Web Component     direct ng build and compile this component
+//       // const showTodos = createCustomElement(TodosComponent,{injector: this.injector});
+//       // customElements.define('show-todos', showTodos);   //*Use for Create and Register Custom Web Component
+//       // const about = createCustomElement(AboutComponent,{injector: this.injector});
+//       // customElements.define('about-todos', about);   //*Use for Create and Register Custom Web Component
+//   }
+//  }
