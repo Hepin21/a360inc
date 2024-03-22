@@ -1,0 +1,49 @@
+<div style="display: flex">
+  <div style="flex-grow: 1">
+    <app-header [title]="headerTitle"></app-header>
+    <div class="content mt-3">
+      <div class="grid nested-grid">
+        <div class="col-8">
+          <app-result-card></app-result-card>
+        </div>
+        <div class="col-4">
+          <p-panel>
+            <router-outlet></router-outlet>
+            <ng-template pTemplate="header">
+              <span class="font-bold">Foreclosure Progress</span>
+            </ng-template>
+            <ng-template pTemplate="icons">
+              <button class="p-panel-header-icon p-link mr-2">
+                <span class="pi pi-refresh"></span>
+              </button>
+            </ng-template>
+            <p-toolbar>
+              <div class="p-toolbar-group-start">
+                <i class="pi pi-check-circle"></i>
+                <span class="font-bold ml-2"> Loan Type </span>
+              </div>
+            </p-toolbar>
+            <p-toolbar>
+              <div class="p-toolbar-group-start">
+                <i class="pi pi-check-circle"></i>
+                <span class="font-bold ml-2"> Investor Type </span>
+              </div>
+            </p-toolbar>
+            <p-toolbar>
+              <div class="p-toolbar-group-start">
+                <i class="pi pi-check-circle"></i>
+                <span class="font-bold ml-2"> Client </span>
+              </div>
+            </p-toolbar>
+            <p-toolbar>
+              <div class="p-toolbar-group-start">
+                <i class="pi pi-check-circle"></i>
+                <span class="font-bold ml-2"> Milestone </span>
+              </div>
+            </p-toolbar>
+          </p-panel>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
