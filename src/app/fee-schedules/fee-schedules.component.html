@@ -9,7 +9,7 @@
                     <span class="ml-2"><b>Foreclosure</b></span>
                 </p-card>
             </div>
-            <div routerLink="/dil">
+            <div routerLink="/dil" (click)="fetchDILLoanTypes()">
                 <p-card [style]="{'width':'12rem','height':'5rem','display': 'flex', 'justify-content': 'center', 'align-items': 'center'}">
                     <p-avatar class="flex-shrink-0 avatar-sm" shape="circle" size="normal" styleClass="bg-light">
                         <i class="pi pi-check fs-24"></i>

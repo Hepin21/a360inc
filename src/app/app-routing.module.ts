@@ -14,8 +14,9 @@ import { ClientTypeComponent } from './ForeClosure/client-type/client-type.compo
 import { ForResultComponent } from './ForeClosure/for-result/for-result.component';
 import { ForeClosureComponent } from './ForeClosure/fore-closure/fore-closure.component';
 import { DilResultComponent } from './DilComponent/dil-result/dil-result.component';
-
-
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+import { FeeSchedulesComponent } from './fee-schedules/fee-schedules.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,7 +24,7 @@ const routes: Routes = [
   { path: 'app-header', component: HeaderComponent },
   { path: 'dil', component: DILComponent },
   { path: 'foreclosure', component: ForeClosureComponent },
-  {path: 'conventional', component: ConventionalComponent},
+  { path: 'conventional', component: ConventionalComponent },
   { path: 'dil-result', component: DilResultComponent },
   { path: 'milestone', component: MileStoneComponent },
   { path: 'foremile', component: MilestoneTypeComponent },
@@ -32,10 +33,12 @@ const routes: Routes = [
   { path: 'loan', component: LoanComponent },
   { path: 'client', component: ClientTypeComponent },
   { path: 'fore-result', component: ForResultComponent },
+  { path: 'registration', component: RegistrationComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

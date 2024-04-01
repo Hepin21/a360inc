@@ -8,6 +8,7 @@ import { ButtonModule } from 'primeng/button';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarModule } from 'primeng/sidebar';
+import { PasswordModule } from 'primeng/password';
 import { ToolbarModule } from 'primeng/toolbar';
 import { DividerModule } from 'primeng/divider';
 import { MenubarModule } from 'primeng/menubar';
@@ -47,8 +48,12 @@ import { PanelModule } from 'primeng/panel';
 import { ForResultCardComponent } from './ForeClosure/for-result-card/for-result-card.component';
 import { createCustomElement } from '@angular/elements';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
+import { CheckboxModule } from 'primeng/checkbox';
 import { ResultCardComponent } from './DilComponent/result-card/result-card.component';
 import { DilResultComponent } from './DilComponent/dil-result/dil-result.component';
+import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -79,11 +84,15 @@ import { DilResultComponent } from './DilComponent/dil-result/dil-result.compone
     MilestoneTypeComponent,
     ForResultComponent,
     ForResultCardComponent,
+    LoginComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    CheckboxModule,
     FormsModule,
+    PasswordModule,
     AppRoutingModule,
     RadioButtonModule,
     ButtonModule,
@@ -101,7 +110,8 @@ import { DilResultComponent } from './DilComponent/dil-result/dil-result.compone
     ToastModule,
     MenuModule,
     PanelModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

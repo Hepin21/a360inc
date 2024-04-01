@@ -1,4 +1,4 @@
-<p-sidebar [style]="{ width: '250px' }" [(visible)]="sidebarVisible">
+<p-sidebar [style]="{ width: '300px','background-color': 'black'}" [(visible)]="sidebarVisible">
   <ng-template pTemplate="headless">
     <div class="flex flex-column h-full">
       <div>
@@ -8,12 +8,12 @@
         >
           <p-avatar
             class="text-blue-400"
-            label="UN"
+            label="HP"
             size="large"
             shape="circle"
           />
           <!-- <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle" />        For Add Image-->
-          <span class="font-bold text-blue-500">User Name</span>
+          <span class="font-bold text-blue-500">Hepin Ponkiya</span>
         </a>
       </div>
       <div class="overflow-y-auto">
@@ -39,7 +39,7 @@
               <li>
                 <a
                   pRipple
-                  routerLink="/auth/login"
+                  routerLink="/login"
                   class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:bg-red-300 transition-duration-150 transition-colors p-ripple"
                 >
                   <i class="pi pi-sign-out mr-2"></i>
@@ -54,5 +54,11 @@
   </ng-template>
 </p-sidebar>
 <div [style]="{ height: '100%' }">
-  <p-button (click)="sidebarVisible = true" icon="pi pi-bars"></p-button>
+  <!-- <p-button (click)="sidebarVisible = true" icon="pi pi-bars"></p-button> -->
+  <button
+      (click)="sidebarVisible = true"
+      class="p-link mr-3 inline-flex align-items-center text-black-900 h-3rem w-3rem justify-content-center hover:bg-white-alpha-10 transition-all transition-duration-200"
+    >
+      <i class="pi pi-bars text-3xl"></i>
+    </button>
 </div>

@@ -1,0 +1,86 @@
+<div
+  class="mt-5 flex flex-wrap align-items-center justify-content-center h-full"
+>
+  <div
+    class="surface-overlay border-round border-1 w-30rem min-h-full shadow-1 p-5 py-0 m-3"
+  >
+    <div class="m-5"></div>
+    <div class="text-center">
+      <h3>Welcome Back!</h3>
+      <p>Sign in to continue to Fee Schedule.</p>
+    </div>
+
+    <div class="w-full card flex justify-content-left mb-3">
+      <div class="flex flex-column gap-2">
+        <label for="firstname">First Name</label>
+        <input
+          class="p-fluid"
+          pInputText
+          id="firstname"
+          placeholder="Enter First Name"
+        />
+      </div>
+    </div>
+    <div class="w-full card flex justify-content-left mb-3">
+      <div class="flex flex-column gap-2">
+        <label for="lastname">Last Name</label>
+        <input
+          class="p-fluid"
+          pInputText
+          id="lastname"
+          placeholder="Enter Last Name"
+        />
+      </div>
+    </div>
+    <div class="w-full card flex justify-content-left mb-3">
+      <div class="flex flex-column gap-2">
+        <label for="email">Email</label>
+        <input
+          class="p-fluid"
+          pInputText
+          id="email"
+          placeholder="Enter email"
+        />
+      </div>
+    </div>
+    <div class="card flex justify-content-left mb-3">
+      <div class="flex flex-column gap-2 w-full">
+        <label for="password">Password</label>
+        <p-password
+          placeholder="Enter password"
+          formControlName="value"
+          [feedback]="false"
+          [toggleMask]="true"
+          class="w-12"
+        ></p-password>
+        <!-- <input pInputText id="password" type="password" class="w-25rem"  /> -->
+      </div>
+    </div>
+    <div class="card flex justify-content-left mb-3">
+      <div class="flex flex-column gap-2 w-full">
+        <label for="password">Password</label>
+        <p-password
+          placeholder="Confirm password"
+          formControlName="value"
+          [feedback]="false"
+          [toggleMask]="true"
+          class="w-12"
+        ></p-password>
+        <!-- <input pInputText id="password" type="password" class="w-25rem"  /> -->
+      </div>
+    </div>
+    <div class="card flex justify-content-left mb-3">
+      <div class="flex flex-column gap-2">
+        <p-button
+          label="Register"
+          icon="pi pi-user"
+          styleClass="w-10rem mx-auto"
+        ></p-button>
+      </div>
+    </div>
+    <p>
+      Already have an account?
+      <a routerLink="/login">Sign in</a>
+    </p>
+  </div>
+</div>
