@@ -35,12 +35,12 @@ import { ForeClosureComponent } from './ForeClosure/fore-closure/fore-closure.co
 import { ClientNameComponent } from './InvestorType/client-name/client-name.component';
 import { MileStoneComponent } from './InvestorType/mile-stone/mile-stone.component';
 import { MileCardComponent } from './InvestorType/mile-card/mile-card.component';
-import { ClientTypeComponent } from './ForeClosure/client-type/client-type.component';
+import { ClientTypeComponent } from './ForeClosure/Client/client-type/client-type.component';
 import { LoanCardComponent } from './ForeClosure/LoanType/loan-card/loan-card.component';
 import { LoanComponent } from './ForeClosure/LoanType/loan/loan.component';
 import { InvestorCardComponent } from './ForeClosure/Investor/investor-card/investor-card.component';
 import { InvestorTypeComponent } from './ForeClosure/Investor/investor-type/investor-type.component';
-import { ClientCardComponent } from './ForeClosure/client-card/client-card.component';
+import { ClientCardComponent } from './ForeClosure/Client/client-card/client-card.component';
 import { MilestoneCardComponent } from './ForeClosure/MileStone/milestone-card/milestone-card.component';
 import { MilestoneTypeComponent } from './ForeClosure/MileStone/milestone-type/milestone-type.component';
 import { ForResultComponent } from './ForeClosure/for-result/for-result.component';
@@ -51,9 +51,12 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ResultCardComponent } from './DilComponent/result-card/result-card.component';
 import { DilResultComponent } from './DilComponent/dil-result/dil-result.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { StateComponent } from './ForeClosure/StateType/state/state.component';
+import { StateCardComponent } from './ForeClosure/StateType/state-card/state-card.component';
+import { AddTokenInterceptor } from './Interceptor/add-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -86,6 +89,8 @@ import { RegistrationComponent } from './registration/registration.component';
     ForResultCardComponent,
     LoginComponent,
     RegistrationComponent,
+    StateComponent,
+    StateCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,17 +116,23 @@ import { RegistrationComponent } from './registration/registration.component';
     MenuModule,
     PanelModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AddTokenInterceptor,
+      multi: true,
+    },
+  ],
+  bootstrap: [AppComponent],
   // bootstrap: [],
   // schemas: [
   //   CUSTOM_ELEMENTS_SCHEMA
   // ],
 })
-export class AppModule { }
-// export class AppModule implements DoBootstrap{ 
+export class AppModule {}
+// export class AppModule implements DoBootstrap{
 
 //   constructor(private injector: Injector){}
 

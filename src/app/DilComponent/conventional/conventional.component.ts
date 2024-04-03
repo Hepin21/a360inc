@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoanService } from '../conventional/loan.service';
+import { LoanService } from '../Services/loan.service';
 
 @Component({
   selector: 'app-conventional',

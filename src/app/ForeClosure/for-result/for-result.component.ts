@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { LoanService } from 'src/app/DilComponent/conventional/loan.service';
-import { InvestorService } from 'src/app/DilComponent/conventional/investor.service';
+import { LoanService } from 'src/app/DilComponent/Services/loan.service';
+import { InvestorService } from 'src/app/DilComponent/Services/investor.service';
 import { ForeclosuretypeService } from 'src/app/ForeClosure/Services/foreclosuretype.service';
 import { ClientSelectionService } from 'src/app/InvestorType/client-selection.service';
-import { MilestoneService } from 'src/app/Services/milestone.service';
+import { MilestoneService } from 'src/app/DilComponent/Services/milestone.service';
 
 @Component({
   selector: 'app-for-result',

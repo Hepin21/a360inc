@@ -1,18 +1,28 @@
 import { Component } from '@angular/core';
-import { LoanService } from 'src/app/DilComponent/conventional/loan.service';
+import { LoanService } from 'src/app/DilComponent/Services/loan.service';
 
 @Component({
   selector: 'app-loan-card',
   templateUrl: './loan-card.component.html',
-  styleUrls: ['./loan-card.component.scss']
+  styleUrls: ['./loan-card.component.scss'],
 })
 export class LoanCardComponent {
-  loans=[{name:'Conventional Insured/PMI'},{name:'FHA'},{name:'USDA'},{name:'VA'}];
-  constructor(private LoanService: LoanService) { }
-  
+  loans: any[] = [];
+  constructor(private LoanService: LoanService) {}
   selectLoan(loanName: string) {
-    this.LoanService. setSelectedLoan(loanName);
+    this.LoanService.setSelectedLoan(loanName);
   }
-       ngOnInit(): void {
-       }
+  ngOnInit(): void {
+    this.loadLoans();
+  }
+  loadLoans(): void {
+    this.LoanService.getLoanTypes().subscribe(
+      (data: any[]) => {
+        this.loans = data;
+      },
+      (error) => {
+        console.error('Error fetching Loans types:', error);
+      }
+    );
+  }
 }

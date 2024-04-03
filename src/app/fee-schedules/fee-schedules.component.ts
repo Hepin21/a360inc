@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoanService } from '../DilComponent/conventional/loan.service';
+import { LoanService } from '../DilComponent/Services/loan.service';
 
 @Component({
   selector: 'app-fee-schedules',
@@ -8,16 +8,19 @@ import { LoanService } from '../DilComponent/conventional/loan.service';
   styleUrls: ['./fee-schedules.component.scss'],
 })
 export class FeeSchedulesComponent {
-  constructor(private router: Router, private loanService: LoanService) { }
+  constructor(
+    private router: Router,
+    private loanService: LoanService,
+  ) {}
 
   fetchDILLoanTypes(): void {
     // Navigate to the DIL route
     this.router.navigate(['/dil']);
 
     // Call the method to fetch DIL loan types
-    this.loanService.fetchLoanTypes().subscribe(
+    this.loanService.getLoanTypes().subscribe(
       (data) => {
-        // Handle the data
+        // this.sharedDataService.setLoanTypes(data);
         console.log(data);
       },
       (error) => {

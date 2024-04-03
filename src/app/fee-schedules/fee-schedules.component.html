@@ -1,7 +1,7 @@
 <div class="flex flex-column md:flex-row">
     <p-card header="Fee Schedules" class="w-full">
         <div style="display: flex;">
-            <div routerLink="/foreclosure" class="mr-3">
+            <div routerLink="/state" class="mr-3">
                 <p-card [style]="{'width':'12rem','height':'5rem','display': 'flex', 'justify-content': 'center', 'align-items': 'center'}">
                     <p-avatar class="flex-shrink-0 avatar-sm" shape="circle" size="normal" styleClass="bg-light">
                         <i class="pi pi-check fs-24"></i>
@@ -9,7 +9,8 @@
                     <span class="ml-2"><b>Foreclosure</b></span>
                 </p-card>
             </div>
-            <div routerLink="/dil" (click)="fetchDILLoanTypes()">
+            <!-- <div routerLink="/dil" (click)="fetchDILLoanTypes()"> -->
+            <div routerLink="/dil">
                 <p-card [style]="{'width':'12rem','height':'5rem','display': 'flex', 'justify-content': 'center', 'align-items': 'center'}">
                     <p-avatar class="flex-shrink-0 avatar-sm" shape="circle" size="normal" styleClass="bg-light">
                         <i class="pi pi-check fs-24"></i>

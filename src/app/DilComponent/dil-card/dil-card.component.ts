@@ -1,25 +1,5 @@
-// import { Component } from '@angular/core';
-// import {LoanService} from "../conventional/loan.service"
-// @Component({
-//   selector: 'app-dil-card',
-//   templateUrl: './dil-card.component.html',
-//   styleUrls: ['./dil-card.component.scss'],
-//   providers : [LoanService]
-// })
-// export class DilCardComponent {
-//   loans=[{name:'Conventional Insured/PMI'},{name:'FHA'},{name:"USDA"},{name:'VA'}];
-// constructor(private LoanService: LoanService) { }
-
-// selectLoan(loanName: string) {
-//   this.LoanService. setSelectedLoan(loanName);
-// }
-//      ngOnInit(): void {
-//      }
-// }
-
-
 import { Component, OnInit } from '@angular/core';
-import { LoanService } from '../conventional/loan.service';
+import { DilLoanTypeService } from '../Services/dil-loan-type.service'; 
 
 @Component({
   selector: 'app-dil-card',
@@ -29,18 +9,20 @@ import { LoanService } from '../conventional/loan.service';
 export class DilCardComponent implements OnInit {
   loans : any[] = [];
 
-  constructor(private loanService: LoanService) { }
+  constructor(private loanService: DilLoanTypeService) { }
 
   ngOnInit(): void {
     this.loadLoans();
   }
 
   loadLoans(): void {
-    this.loanService.getLoanTypes().subscribe(
+    this.loanService.getDilLoanTypes().subscribe(
       (data: any[]) => {
+        // console.log("Are Pan");
         this.loans = data;
       },
       (error) => {
+        console.log("Be Yarr");
         console.error('Error fetching loan types:', error);
       }
     );

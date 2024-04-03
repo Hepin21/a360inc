@@ -10,19 +10,22 @@ import { MileStoneComponent } from './InvestorType/mile-stone/mile-stone.compone
 import { LoanComponent } from './ForeClosure/LoanType/loan/loan.component';
 import { MilestoneTypeComponent } from './ForeClosure/MileStone/milestone-type/milestone-type.component';
 import { InvestorTypeComponent } from './ForeClosure/Investor/investor-type/investor-type.component';
-import { ClientTypeComponent } from './ForeClosure/client-type/client-type.component';
+import { ClientTypeComponent } from './ForeClosure/Client/client-type/client-type.component';
 import { ForResultComponent } from './ForeClosure/for-result/for-result.component';
 import { ForeClosureComponent } from './ForeClosure/fore-closure/fore-closure.component';
 import { DilResultComponent } from './DilComponent/dil-result/dil-result.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { FeeSchedulesComponent } from './fee-schedules/fee-schedules.component';
+import { StateComponent } from './ForeClosure/StateType/state/state.component';
+import { IsAuthenticatedGuard } from './is-authenticated.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: HomeComponent},
   { path: 'app-side-nav', component: SideNavComponent },
   { path: 'app-header', component: HeaderComponent },
   { path: 'dil', component: DILComponent },
+  { path: 'state', component: StateComponent },
   { path: 'foreclosure', component: ForeClosureComponent },
   { path: 'conventional', component: ConventionalComponent },
   { path: 'dil-result', component: DilResultComponent },

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import{LoanService} from 'src/app/DilComponent/conventional/loan.service';
-import{InvestorService} from 'src/app/DilComponent/conventional/investor.service';
+import{LoanService} from 'src/app/DilComponent/Services/loan.service';
+import{InvestorService} from 'src/app/DilComponent/Services/investor.service';
 
 @Component({
   selector: 'app-fnma',
