@@ -1,5 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
-import { StateService } from 'src/app/Services/state.service';
+import { StateService } from 'src/app/ForeClosure/Services/state.service';
 @Component({
   selector: 'app-state-card',
   templateUrl: './state-card.component.html',

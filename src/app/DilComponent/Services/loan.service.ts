@@ -14,7 +14,7 @@ export class LoanService {
     this.selectedLoanSubject.next(loanName);
   }
   private apiUrl =
-    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/foreclosure/loan-types?state_id=28&foreclosure_type_id=1';
+    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/dil/loan-types';
 
   constructor(private http: HttpClient) {}
 

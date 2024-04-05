@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { StateService } from 'src/app/ForeClosure/Services/state.service';
 @Component({
   selector: 'app-state',
   templateUrl: './state.component.html',

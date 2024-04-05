@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoanService } from '../DilComponent/Services/loan.service';
+import { LoanService } from '../ForeClosure/Services/loan.service';
 
 @Component({
   selector: 'app-fee-schedules',

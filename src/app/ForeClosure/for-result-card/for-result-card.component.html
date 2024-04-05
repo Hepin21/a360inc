@@ -1,32 +1,148 @@
 <p-card>
-        <div class="flex flex-row flex-wrap">
-            <div *ngFor="let fee of fees" class="flex align-items-center justify-content-center w-4rem h-4rem bg-primary font-bold border-round mx-8 my-5">
-                <p-card
-                    [style]="{'width':'13rem','height':'6rem', 'margin-right': '1rem','display': 'flex', 'justify-content': 'center', 'align-items': 'center'}">
-                    <h6>{{ fee.abbreviation }}</h6>
-                    <h4>{{ fee.name }}</h4>
-                </p-card>
-            </div>
-        </div>
-        <div class="flex justify-content-center flex-wrap">
-            <div class="flex align-items-center justify-content-center font-bold border-round m-2">
-                <i class="pi pi-check-circle" styleClass="fs-24"></i>
-            </div>
-            <div class="flex align-items-center justify-content-center font-bold border-round m-2">
-                <p style="font-size: x-large; color: #000">Your Fee Schedule is complete!</p>
-            </div>
-        </div>
-        <div class="grid">
-            <div class="col">
-                <div class="text-center p-3 border-round-sm font-bold">
-                    <button pButton type="submit" label="Back" class="p-button-lg w-full p-3"></button>
-                </div>
+  <div
+    class="text-center p-3 border-round-sm text-blue-600 bg-blue-100 font-bold"
+  >
+    Note: Please be sure to verify the fee amounts that have already been billed
+    in your billing system !
+  </div>
+  <div *ngFor="let fee of fees" class="flex flex-row flex-wrap">
+    <div
+      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+    >
+      <p-card
+        [style]="{
+          width: '15rem',
+          height: '7rem',
+          'margin-right': '1rem',
+          display: 'flex',
+          'justify-content': 'center',
+          'align-items': 'center'
+        }"
+      >
+        <p class="text-600 text-sm font-semibold">TOTAL ALLOWABLE AMOUNT</p>
+        <span class="text-900 text-xl font-semibold"
+          >${{ fee.total_allowable_amount }}</span
+        >
+      </p-card>
+    </div>
+
+    <div
+      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+    >
+      <p-card
+        [style]="{
+          width: '15rem',
+          height: '7rem',
+          'margin-right': '1rem',
+          display: 'flex',
+          'justify-content': 'center',
+          'align-items': 'center'
+        }"
+      >
+        <p class="text-600 text-sm font-semibold">ALLOWABLE %</p>
+        <span class="text-900 text-xl font-semibold"
+          >{{ (fee.max_allowed_percentage * 100).toFixed(0) + "%" }} 1st
+          Legal</span
+        >
+      </p-card>
+    </div>
     
-            </div>
-            <div class="col" routerLink="/foreclosure">
-                <div class="text-center p-3 border-round-sm  font-bold ">
-                    <button pButton type="submit" label="Go to Next Case" class="p-button-lg w-full p-3"></button>
-                </div>
-            </div>
-        </div>
-    </p-card>
+    <div
+      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+    >
+      <p-card
+        [style]="{
+          width: '15rem',
+          height: '7rem',
+          'margin-right': '1rem',
+          display: 'flex',
+          'justify-content': 'center',
+          'align-items': 'center'
+        }"
+      >
+        <p class="text-600 text-sm font-semibold">MILESTONE ALLOWABLE AMOUNT</p>
+        <span class="text-900 text-xl font-semibold"
+          >${{ fee.allowable_milestone_amount}}</span
+        >
+      </p-card>
+    </div>
+
+    <div
+      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+    >
+      <p-card
+        [style]="{
+          width: '15rem',
+          height: '7rem',
+          'margin-right': '1rem',
+          display: 'flex',
+          'justify-content': 'center',
+          'align-items': 'center'
+        }"
+      >
+        <p class="text-600 text-sm font-semibold">CURRENT BILLABLE AMOUNT</p>
+        <span class="text-900 text-xl font-semibold"
+          >${{ fee.max_invoiceable_amount }}</span
+        >
+      </p-card>
+    </div>
+
+    <div
+      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+    >
+      <p-card
+        [style]="{
+          width: '15rem',
+          height: '7rem',
+          'margin-right': '1rem',
+          display: 'flex',
+          'justify-content': 'center',
+          'align-items': 'center'
+        }"
+      >
+        <p class="text-600 text-sm font-semibold">AMOUNT THAT SHOULD HAVE ALREADY BEEN BILLED</p>
+        <span class="text-900 text-xl font-semibold"
+          >${{ fee.additional_state_level_instructions +"0.00"}}</span
+        >
+      </p-card>
+    </div>
+
+  </div>
+
+  <div class="flex justify-content-center flex-wrap">
+    <div
+      class="flex align-items-center justify-content-center font-bold border-round m-2"
+    >
+      <i class="pi pi-check-circle text-4xl	font-bold text-green-600" styleClass="fs-24"></i>
+    </div>
+    <div
+      class="flex align-items-center justify-content-center font-bold border-round m-2"
+    >
+      <p style="font-size: x-large; color: #000">
+        Your Fee Schedule is complete!
+      </p>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="col">
+      <div class="text-center p-3 border-round-sm font-bold">
+        <button
+          pButton
+          type="submit"
+          label="Back"
+          class="p-button-lg w-full p-3"
+        ></button>
+      </div>
+    </div>
+    <div class="col" routerLink="/foreclosure">
+      <div class="text-center p-3 border-round-sm font-bold">
+        <button
+          pButton
+          type="submit"
+          label="Go to Next Case"
+          class="p-button-lg w-full p-3"
+        ></button>
+      </div>
+    </div>
+  </div>
+</p-card>

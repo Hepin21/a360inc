@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { LoanService } from 'src/app/DilComponent/Services/loan.service';
+import { LoanService } from 'src/app/ForeClosure/Services/loan.service';
 
 @Component({
   selector: 'app-loan-card',

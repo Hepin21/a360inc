@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { HeaderComponent } from './header/header.component';
-import { DILComponent } from './DilComponent/dil/dil.component';
+import { DILComponent } from './DilComponent/Loan/dil/dil.component';
 import { HomeComponent } from './home/home.component';
-import { ConventionalComponent } from './DilComponent/conventional/conventional.component';
-import { FnmaComponent } from './InvestorType/fnma/fnma.component';
-import { MileStoneComponent } from './InvestorType/mile-stone/mile-stone.component';
+import { ConventionalComponent } from './DilComponent/Investor/conventional/conventional.component';
+import { FnmaComponent } from './DilComponent/Client/fnma/fnma.component';
+import { MileStoneComponent } from './DilComponent/Milestone/mile-stone/mile-stone.component';
 import { LoanComponent } from './ForeClosure/LoanType/loan/loan.component';
 import { MilestoneTypeComponent } from './ForeClosure/MileStone/milestone-type/milestone-type.component';
 import { InvestorTypeComponent } from './ForeClosure/Investor/investor-type/investor-type.component';
@@ -18,7 +18,6 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { FeeSchedulesComponent } from './fee-schedules/fee-schedules.component';
 import { StateComponent } from './ForeClosure/StateType/state/state.component';
-import { IsAuthenticatedGuard } from './is-authenticated.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},

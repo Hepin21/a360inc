@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { LoanService } from 'src/app/DilComponent/Services/loan.service';
-import { InvestorService } from 'src/app/DilComponent/Services/investor.service';
-import { ForeclosuretypeService } from 'src/app/ForeClosure/Services/foreclosuretype.service';
-import { ClientSelectionService } from 'src/app/InvestorType/client-selection.service';
-import { MilestoneService } from 'src/app/DilComponent/Services/milestone.service';
+import { LoanService } from 'src/app/ForeClosure/Services/loan.service'; 
+import { InvestorService } from '../Services/investor.service'; 
+import { ForeclosuretypeService } from '../Services/foreclosuretype.service'; 
+import { ClientSelectionService } from 'src/app/DilComponent/Services/client-selection.service';
+import { MilestoneService } from '../Services/milestone.service'; 
+import { StateService } from 'src/app/ForeClosure/Services/state.service';
 
 @Component({
   selector: 'app-for-result',
@@ -20,12 +21,14 @@ export class ForResultComponent {
       }
     }
   }
+  selectedState:string='';
   selectedForeclosuretype: string = '';
   selectedLoan: string = '';
   selectedInvestor: string = '';
   selectedClient: string = '';
   selectedMilestone: string = '';
   constructor(
+    private SateService: StateService,
     private ForeclosuretypeService: ForeclosuretypeService,
     private LoanService: LoanService,
     private InvestorService: InvestorService,
@@ -33,6 +36,9 @@ export class ForResultComponent {
     private MilestoneService: MilestoneService
   ) {}
   ngOnInit(): void {
+    this.SateService.selectedState$.subscribe(stateName => {
+      this.selectedState = stateName;
+    });
     this.ForeclosuretypeService.selectedForeclosuretype$.subscribe(
       (foreclosureType) => {
         this.selectedForeclosuretype = foreclosureType;

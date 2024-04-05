@@ -1,5 +1,5 @@
 import { Component ,OnInit} from '@angular/core';
-import { ForeclosuretypeService } from 'src/app/Services/foreclosuretype.service';
+import { ForeclosuretypeService } from '../Services/foreclosuretype.service'; 
 
 @Component({
   selector: 'app-fc-card',
@@ -7,7 +7,7 @@ import { ForeclosuretypeService } from 'src/app/Services/foreclosuretype.service
   styleUrls: ['./fc-card.component.scss'],
 })
 export class FcCardComponent implements OnInit{
-  foretypes: any[] = [];
+  foretypes : any[] = [];
   constructor(private ForeclosuretypeService:ForeclosuretypeService ) { }
   selectForeClosure(foreclosuretypeName: string) {
     this.ForeclosuretypeService.setSelectedForeclosuretype(foreclosuretypeName);

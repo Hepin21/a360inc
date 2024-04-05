@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ClientSelectionService } from 'src/app/InvestorType/client-selection.service';
+import { ClientSelectionService } from 'src/app/DilComponent/Services/client-selection.service';
 
 @Component({
   selector: 'app-client-card',
