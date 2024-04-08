@@ -9,10 +9,15 @@ export class ForeClosureComponent {
   // value: string | undefined;
   //* This is For the Progress Panel
   selectedState:string='';
-  constructor(private SateService: StateService){}
+  selectedStateID: number = 0;
+
+  constructor(private stateService: StateService){}
   ngOnInit():void{
-    this.SateService.selectedState$.subscribe(stateName => {
+    this.stateService.selectedState$.subscribe(stateName => {
       this.selectedState = stateName;
+    });
+    this.stateService.selectedStateId$.subscribe(stateID => {
+      this.selectedStateID = stateID;
     });
   }
   toggleFullScreen() {

@@ -16,7 +16,7 @@ export class InvestorCardComponent {
     this.loadInvestor();
   }
   loadInvestor(): void {
-    this.investorService.fetchInvestorTypes().subscribe(
+    this.investorService.getInvestorTypes().subscribe(
       (data: any[]) => {
         this.investors = data;
       },

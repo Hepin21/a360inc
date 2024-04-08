@@ -8,13 +8,22 @@ import { ForeclosuretypeService } from '../../Services/foreclosuretype.service';
 })
 export class LoanComponent {
   //* This is For the Progress Panel 
+  selectedStateID: number = 0;
   selectedState:string='';
+
+  selectedForeclosuretypeID: number = 0;
   selectedForeclosuretype: string = '';
-  constructor(private SateService: StateService,
+  constructor(private stateService: StateService,
     private ForeclosuretypeService: ForeclosuretypeService){}
   ngOnInit():void{
-    this.SateService.selectedState$.subscribe(stateName => {
+    this.stateService.selectedStateId$.subscribe(stateID => {
+      this.selectedStateID = stateID;
+    });
+    this.stateService.selectedState$.subscribe(stateName => {
       this.selectedState = stateName;
+    });
+    this.stateService.selectedStateId$.subscribe(fctID => {
+      this.selectedForeclosuretypeID = fctID;
     });
     this.ForeclosuretypeService.selectedForeclosuretype$.subscribe(
       (foreclosureType) => {

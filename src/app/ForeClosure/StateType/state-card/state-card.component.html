@@ -4,7 +4,7 @@
     *ngFor="let state of states"
     routerLinkActive="active"
     routerLink="/foreclosure"
-    (click)="selectState(state.fullname)"
+    (click)="selectState(state.fullname, state.id)"
   >
     <p-card
       class="shadow-2 hover:shadow-8 surface-overlay"

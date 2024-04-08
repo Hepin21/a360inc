@@ -14,14 +14,15 @@
             </div>
             <div class="col-8">
               <div class="p-inputgroup">
-                <span class="p-inputgroup-addon">
+                <span class="p-input-icon-left w-full">
                   <i class="pi pi-search"></i>
+                  <input
+                    class="w-full py-3 surface-300 text-blue-600 font-bold"
+                    pInputText
+                    type="text"
+                    placeholder="Search Investor"
+                  />
                 </span>
-                <input
-                  pInputText
-                  placeholder="Search"
-                  class="text-center p-3 w-full text-blue-600 border-round-sm surface-300 font-bold"
-                />
               </div>
             </div>
             <div class="col-12">
@@ -39,7 +40,10 @@
               <span class="font-bold text-xl ml-1">Foreclosure Progress</span>
             </ng-template>
             <ng-template pTemplate="icons">
-              <button class="p-panel-header-icon p-link mr-2" routerLink="/state">
+              <button
+                class="p-panel-header-icon p-link mr-2"
+                routerLink="/state"
+              >
                 <span class="pi pi-refresh"></span>
               </button>
             </ng-template>
@@ -48,37 +52,52 @@
                 <i class="pi pi-check-circle font-bold text-green-600"></i>
                 <span class="font-bold ml-2"> State </span>
                 <span
-                class="text-center p-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2">{{ selectedState }}</span>              </div>
+                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2"
+                  >{{ selectedState }}</span
+                >
+              </div>
             </p-toolbar>
             <p-toolbar>
               <div class="p-toolbar-group-start">
                 <i class="pi pi-check-circle font-bold text-green-600"></i>
                 <span class="font-bold ml-2"> Foreclosure Type </span>
-                <span class="text-center p-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2">{{selectedForeclosuretype}}</span>
+                <span
+                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2"
+                  >{{ selectedForeclosuretype }}</span
+                >
               </div>
             </p-toolbar>
             <p-toolbar>
               <div class="p-toolbar-group-start">
                 <i class="pi pi-check-circle font-bold text-green-600"></i>
                 <span class="font-bold ml-2"> Loan Type </span>
-                <span class="text-center p-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2">{{selectedLoan}}</span>
+                <span
+                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2"
+                  >{{ selectedLoan }}</span
+                >
               </div>
             </p-toolbar>
             <p-toolbar>
               <div class="p-toolbar-group-start">
-                <i class="pi pi-exclamation-circle font-bold text-orange-600"></i>
+                <i
+                  class="pi pi-exclamation-circle font-bold text-orange-600"
+                ></i>
                 <span class="font-bold ml-2"> Investor Type </span>
               </div>
             </p-toolbar>
             <p-toolbar>
               <div class="p-toolbar-group-start">
-                <i class="pi pi-exclamation-circle font-bold text-orange-600"></i>
+                <i
+                  class="pi pi-exclamation-circle font-bold text-orange-600"
+                ></i>
                 <span class="font-bold ml-2"> Client </span>
               </div>
             </p-toolbar>
             <p-toolbar>
               <div class="p-toolbar-group-start">
-                <i class="pi pi-exclamation-circle font-bold text-orange-600"></i>
+                <i
+                  class="pi pi-exclamation-circle font-bold text-orange-600"
+                ></i>
                 <span class="font-bold ml-2"> Milestone </span>
               </div>
             </p-toolbar>

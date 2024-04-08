@@ -20,10 +20,10 @@ import { FeeSchedulesComponent } from './fee-schedules/fee-schedules.component';
 import { StateComponent } from './ForeClosure/StateType/state/state.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: 'home', component: HomeComponent},
   { path: 'app-side-nav', component: SideNavComponent },
   { path: 'app-header', component: HeaderComponent },
-  { path: 'dil', component: DILComponent },
+  { path: 'dilloan', component: DILComponent },
   { path: 'state', component: StateComponent },
   { path: 'foreclosure', component: ForeClosureComponent },
   { path: 'conventional', component: ConventionalComponent },
@@ -31,12 +31,12 @@ const routes: Routes = [
   { path: 'milestone', component: MileStoneComponent },
   { path: 'foremile', component: MilestoneTypeComponent },
   { path: 'investor', component: InvestorTypeComponent },
-  { path: 'fnma', component: FnmaComponent },
+  { path: 'clients', component: FnmaComponent },
   { path: 'loan', component: LoanComponent },
   { path: 'client', component: ClientTypeComponent },
   { path: 'fore-result', component: ForResultComponent },
   { path: 'registration', component: RegistrationComponent },
-  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
 ];
 
 @NgModule({

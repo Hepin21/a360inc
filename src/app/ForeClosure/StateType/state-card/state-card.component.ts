@@ -1,4 +1,4 @@
-import { Component ,OnInit} from '@angular/core';
+import { Component ,EventEmitter,OnInit, Output} from '@angular/core';
 import { StateService } from 'src/app/ForeClosure/Services/state.service';
 @Component({
   selector: 'app-state-card',
@@ -7,15 +7,18 @@ import { StateService } from 'src/app/ForeClosure/Services/state.service';
 })
 export class StateCardComponent implements OnInit{
   states: any[] = [];
-  constructor(private StatetypeService:StateService ) { }
-  selectState(statetypeName: string) {
-    this.StatetypeService.setSelectedState(statetypeName);
+  @Output() stateSelected: EventEmitter<number> = new EventEmitter<number>();
+  constructor(private statetypeService:StateService ) { }
+  selectState(fullname: string, id: number) {
+    this.statetypeService.setSelectedState(fullname);
+    this.statetypeService.setSelectedStateID(id);
+    // this.stateSelected.emit(id); // Emit the selected state ID
   }
   ngOnInit(): void {
     this.loadStates();
   }
   loadStates(): void {
-    this.StatetypeService.getStateTypes().subscribe(
+    this.statetypeService.getStateTypes().subscribe(
       (data: any[]) => {
         this.states = data;
       },

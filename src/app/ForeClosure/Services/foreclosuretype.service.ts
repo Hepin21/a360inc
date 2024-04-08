@@ -13,12 +13,13 @@ export class ForeclosuretypeService {
   setSelectedForeclosuretype(foreclosuretypeName: string) {
     this.selectedForeclosuretypeSubject.next(foreclosuretypeName);
   }
-  private apiUrl =
-    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/foreclosure/foreclosure-types?state_id=28';
+  private baseUrl =
+    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/foreclosure/foreclosure-types';
 
   constructor(private http: HttpClient) {}
 
-  getForeclosureTypes(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getForeclosureTypes(stateID: number): Observable<any[]> {
+    const apiUrl = `${this.baseUrl}?state_id=${stateID}`;
+    return this.http.get<any[]>(apiUrl);
   }
 }

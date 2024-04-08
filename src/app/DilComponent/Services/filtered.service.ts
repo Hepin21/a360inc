@@ -23,7 +23,7 @@ export class FilteredService {
   //   return this.http.get<any[]>(this.apiUrl);
   // }
   getDilFilteredData(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get<any[]>(this.apiUrl);
   }
   
 }

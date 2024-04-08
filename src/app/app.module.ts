@@ -57,6 +57,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { StateComponent } from './ForeClosure/StateType/state/state.component';
 import { StateCardComponent } from './ForeClosure/StateType/state-card/state-card.component';
 import { AddTokenInterceptor } from './Interceptor/add-token.interceptor';
+// import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,7 @@ import { AddTokenInterceptor } from './Interceptor/add-token.interceptor';
     StateCardComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     ReactiveFormsModule,
     CheckboxModule,
     FormsModule,

@@ -1,99 +1,7 @@
-<!-- <div class="mt-8 text-center">
-  <img
-    class=""
-    routerLink="/"
-    [style]="{ width: '120px' }"
-    src="https://beta-feeschedule.outamationlabs.com/assets/images/a360inc-logo.png"
-  />
-</div>
-
-<div
-  class="mt-5 flex flex-wrap align-items-center justify-content-center h-full"
->
-  <div
-    class="surface-overlay border-round w-30rem min-h-full shadow-1 p-5 py-0 m-3"
-  >
-    <form (ngSubmit)="login()" [formGroup]="loginForm">
-      <div class="m-5"></div>
-      <div class="text-center">
-        <h3 class="text-blue-300">Welcome Back!</h3>
-        <p>Sign in to continue to Fee Schedule.</p>
-      </div>
-
-      <div class="w-full card flex justify-content-center mb-3">
-        <div class="flex flex-column gap-2 w-full">
-          <label for="email">Email</label>
-          <input
-            pInputText
-            id="email"
-            placeholder="Enter email"
-            class="p-fluid"
-            formControlName="email"
-            [(ngModel)]="email"
-          />
-          <div *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
-            <span class="error">Email is required</span>
-        </div>
-        </div>
-      </div>
-
-      <div class="w-full card flex justify-content-center mb-3">
-        <div class="flex flex-column gap-2 w-full">
-          <label for="password">Password</label>
-          <div class="p-input-icon-left w-full">
-            <i class="pi pi-lock"></i>
-            <p-password
-              type="password"
-              placeholder="Enter password"
-              [toggleMask]="true"
-              [feedback]="false"
-              class="p-fluid"
-              formControlName="password"
-              [(ngModel)]="password"
-            ></p-password>
-          </div>
-          <div
-            *ngIf="
-              loginForm.controls['password'].invalid &&
-              (loginForm.controls['password'].dirty ||
-                loginForm.controls['password'].touched)
-            "
-          >
-            <span class="error">Password is required</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="card flex justify-content-left mb-3">
-        <p-checkbox [binary]="true" inputId="binary"></p-checkbox>
-        <label for="binary" class="ml-2 checkbox-label">Remember me</label>
-      </div>
-
-      <div class="card flex justify-content-center mb-4">
-        <div class="flex flex-column gap-2">
-          <p-button
-            type="submit"
-            label="Sign In"
-            class="p-fluid"
-            severity="success"
-            styleClass="w-26rem"
-          ></p-button>
-        </div>
-      </div>
-      <div *ngIf="errorMessage" class="text-red-700	">{{ errorMessage }}</div>
-    </form>
-    <p>
-      Don't have an account?
-      <a routerLink="/registration">Register Yourself!</a>
-    </p>
-  </div>
-</div> -->
-
-
 <div class="mt-8 text-center">
   <img
     class=""
-    routerLink="/"
+    routerLink="/home"
     [style]="{ width: '120px' }"
     src="https://beta-feeschedule.outamationlabs.com/assets/images/a360inc-logo.png"
   />
@@ -122,7 +30,11 @@
             class="p-fluid"
             formControlName="email"
           />
-          <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.dirty">
+          <div
+            *ngIf="
+              loginForm.get('email')?.invalid && loginForm.get('email')?.dirty
+            "
+          >
             <span class="text-red-600">Email is required</span>
           </div>
         </div>
@@ -141,7 +53,12 @@
               formControlName="password"
             ></p-password>
           </div>
-          <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.dirty">
+          <div
+            *ngIf="
+              loginForm.get('password')?.invalid &&
+              loginForm.get('password')?.dirty
+            "
+          >
             <span class="text-red-600">Password is required</span>
           </div>
         </div>
@@ -151,7 +68,7 @@
         <p-checkbox [binary]="true" inputId="binary"></p-checkbox>
         <label for="binary" class="ml-2 checkbox-label">Remember me</label>
       </div>
-      
+
       <div *ngIf="errorMessage" class="text-red-700">{{ errorMessage }}</div>
       <div class="card flex justify-content-center mb-4">
         <div class="flex flex-column gap-2">
@@ -165,9 +82,10 @@
         </div>
       </div>
     </form>
-    <p>
+    <!-- <p>
       Don't have an account?
       <a routerLink="/registration">Register Yourself!</a>
-    </p>
+    </p> -->
   </div>
 </div>
+

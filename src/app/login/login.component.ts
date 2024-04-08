@@ -1,45 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-// import { Validators, FormControl, FormGroup } from '@angular/forms';
-// import { AuthService } from '../Services/auth.service';
-// import { Router } from '@angular/router';
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.scss'],
-// })
-// export class LoginComponent implements OnInit {
-//   loginForm!: FormGroup;
-
-//   ngOnInit() {
-//   this.loginForm = new FormGroup({
-//     email: new FormControl('', Validators.required),
-//     password: new FormControl('', Validators.required),
-//   });
-// }
-//   value: string | undefined;
-
-//   submitted = false;
-//   passwordVisible!: boolean;
-
-//   togglePasswordVisibility(): void {
-//     this.passwordVisible = !this.passwordVisible;
-//   }
-//   email: string = '';
-//   password: string = '';
-//   errorMessage: string = '';
-//   constructor(private authService: AuthService, private router: Router) {}
-//   login() {
-//     const result = this.authService.login(this.email, this.password);
-//     if (result === true) {
-//       this.router.navigate(['/']);
-//     } else {
-//       this.errorMessage = result as string;
-//     }
-//   }
-// }
-
-
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'; // Updated import
 import { AuthService } from '../Services/auth.service';
@@ -63,7 +21,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.loginForm = this.formBuilder.group({ // Using FormBuilder to create FormGroup
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]], // Example password validation
+      password: ['', [Validators.required, Validators.minLength(0)]], // Example password validation
     });
   }
 
@@ -81,7 +39,7 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(username, password).subscribe(
       () => {
-        this.router.navigate(['/']); // Navigate to home if login successful
+        this.router.navigate(['/home']); // Navigate to home if login successful
       },
       (error) => {
         this.errorMessage = error; // Show error message if login fails

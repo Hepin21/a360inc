@@ -15,19 +15,15 @@
             </div>
             <div class="col-8">
               <div class="p-inputgroup">
-                <span class="p-inputgroup-addon">
+                <span class="p-input-icon-left w-full  ">
                   <i class="pi pi-search"></i>
-                </span>
-                <input
-                  pInputText
-                  placeholder="Search"
-                  class="text-center p-3 w-full text-blue-600 border-round-sm surface-300 font-bold"
-                />
+                  <input class="w-full py-3 surface-300 text-blue-600 font-bold" pInputText type="text" placeholder="Search Foreclosure Type" />
+              </span>
               </div>
             </div>
             <div class="col-12">
               <div class="flex align-content-evenly flex-wrap w-full">
-                <app-fc-card></app-fc-card>
+                <app-fc-card [stateID]="selectedStateID"></app-fc-card>
               </div>
             </div>
           </div>
@@ -49,7 +45,7 @@
                 <i class="pi pi-check-circle font-bold text-green-600	"></i>
                 <span class="font-bold ml-2"> State </span>
                 <span
-                  class="text-center p-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2">{{ selectedState }}</span>
+                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2">{{ selectedState }}</span>
               </div>
             </p-toolbar>
             <p-toolbar>
