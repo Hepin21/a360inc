@@ -4,11 +4,9 @@
     <div class="content mt-3">
       <div class="grid nested-grid">
         <div class="col-8">
-          <!-- <app-result-card></app-result-card> -->
-          <app-for-result-card></app-for-result-card>
+          <app-for-result-card [foreclosureTypeId]="selectedForeclosuretypeID" [stateID]="selectedStateID" [loanID]="selectedLoanID" [investorID]="selectedInvestorID" [clientID]="selectedClientID" [milestoneID]="selectedMilestoneID"></app-for-result-card>
         </div>
         <div class="col-4">
-          <!-- <div class="text-center p-3 border-round-sm h-full bg-primary font-bold">4</div> -->
           <p-panel>
             <router-outlet></router-outlet>
             <ng-template pTemplate="header">

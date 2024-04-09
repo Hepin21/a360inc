@@ -13,6 +13,15 @@ export class LoanService {
   setSelectedLoan(loanName: string) {
     this.selectedLoanSubject.next(loanName);
   }
+
+  private selectedLoanIdSubject: BehaviorSubject<number> =
+    new BehaviorSubject<number>(0);
+  public selectedLoanId$: Observable<number> =
+    this.selectedLoanIdSubject.asObservable();
+  setSelectedLoanId(loanID: number) {
+    this.selectedLoanIdSubject.next(loanID);
+  }
+
   private apiUrl =
     'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/dil/loan-types';
 

@@ -4,10 +4,10 @@
     *ngFor="let loan of loans"
     routerLinkActive="active"
     routerLink="/conventional"
-    (click)="selectLoan(loan.type)"
-  >
+    (click)="selectLoan(loan.type, loan.id)"
+    >
     <p-card
-      class="select-none shadow-2 hover:shadow-8 surface-overlay"
+    class="select-none shadow-2 hover:shadow-8 surface-overlay"
       [style]="{
         width: '13rem',
         height: '5rem',

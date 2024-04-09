@@ -20,7 +20,7 @@ export class AddTokenInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     // Get the token from AuthService
     const token = this.authService.getToken();
-    // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJoZXBpbnBvbmtpeWFAZ21haWwuY29tIiwicGVybWlzc2lvbnMiOiJ1c2VyIiwibmFtZSI6IkhlcGluIFBvbmtpeWEiLCJpZCI6NywiZXhwIjoxNzEyNTk2Nzk3fQ.-084wJQ1B_n60NYch5Q-XcL498SaxERpVImdd8Q9ut4';
+    // const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJoZXBpbnBvbmtpeWFAZ21haWwuY29tIiwicGVybWlzc2lvbnMiOiJ1c2VyIiwibmFtZSI6IkhlcGluIFBvbmtpeWEiLCJpZCI6NywiZXhwIjoxNzEyNjgzNzUzfQ.rm2esWBEHUv6nBSewxMN7zxpXs51rYsetmP1eRAqbEU';
 
     // Clone the request and set the authorization header if token exists
     if (token) {

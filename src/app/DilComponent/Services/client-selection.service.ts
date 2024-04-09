@@ -3,13 +3,23 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ClientSelectionService {
-  private selectedClient: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  private selectedClient: BehaviorSubject<string> = new BehaviorSubject<string>(
+    ''
+  );
   selectedClient$: Observable<string> = this.selectedClient.asObservable();
   setSelectedClient(clientName: string) {
     this.selectedClient.next(clientName);
+  }
+
+  private selectedClientIDSubject: BehaviorSubject<number> =
+    new BehaviorSubject<number>(0);
+  public selectedClientId$: Observable<number> =
+    this.selectedClientIDSubject.asObservable();
+  setSelectedClientId(clientID: number) {
+    this.selectedClientIDSubject.next(clientID);
   }
   private apiUrl =
     'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/dil/clients?loan_type_id=2&investor_type_id=2';

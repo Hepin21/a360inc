@@ -7,12 +7,12 @@ import { StateService } from 'src/app/ForeClosure/Services/state.service';
 })
 export class StateCardComponent implements OnInit{
   states: any[] = [];
-  @Output() stateSelected: EventEmitter<number> = new EventEmitter<number>();
+  @Output() stateID: EventEmitter<number> = new EventEmitter<number>();
   constructor(private statetypeService:StateService ) { }
-  selectState(fullname: string, id: number) {
+  selectState(fullname: string, stateID: number) {
     this.statetypeService.setSelectedState(fullname);
-    this.statetypeService.setSelectedStateID(id);
-    // this.stateSelected.emit(id); // Emit the selected state ID
+    this.statetypeService.setSelectedStateID(stateID);
+    // this.stateSelected.emit(stateID); // Emit the selected state ID
   }
   ngOnInit(): void {
     this.loadStates();

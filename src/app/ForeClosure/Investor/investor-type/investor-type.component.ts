@@ -8,19 +8,45 @@ import { StateService } from 'src/app/ForeClosure/Services/state.service';
   styleUrls: ['./investor-type.component.scss'],
 })
 export class InvestorTypeComponent {
-  selectedState:string='';
-  selectedForeclosuretype:string='';
-  selectedLoan:string='';
-  constructor(private SateService: StateService,private ForeclosuretypeService: ForeclosuretypeService,private LoanService: LoanService){}
-  ngOnInit():void{
-    this.SateService.selectedState$.subscribe(stateName => {
+  selectedState: string = '';
+  selectedStateID: number = 0;
+
+  selectedForeclosuretype: string = '';
+  selectedForeclosuretypeID: number = 0;
+  
+  selectedLoan: string = '';
+  selectedLoanID: number =0;
+
+  constructor(
+    private stateService: StateService,
+    private ForeclosuretypeService: ForeclosuretypeService,
+    private LoanService: LoanService
+  ) {}
+  ngOnInit(): void {
+    
+    this.stateService.selectedState$.subscribe((stateName) => {
       this.selectedState = stateName;
     });
-    this.ForeclosuretypeService.selectedForeclosuretype$.subscribe(foreclosureType=>{
-      this.selectedForeclosuretype=foreclosureType;
+    this.stateService.selectedStateId$.subscribe((stateID) => {
+      this.selectedStateID = stateID;
     });
-    this.LoanService.selectedLoan$.subscribe(loanName => {
+
+    this.ForeclosuretypeService.selectedForeclosuretype$.subscribe(
+      (foreclosureType) => {
+        this.selectedForeclosuretype = foreclosureType;
+      }
+    );
+    this.ForeclosuretypeService.selectedForeclosuretypeID$.subscribe(
+      (foreclosureTypeId) => {
+        this.selectedForeclosuretypeID = foreclosureTypeId;
+      }
+    );
+
+    this.LoanService.selectedLoan$.subscribe((loanName) => {
       this.selectedLoan = loanName;
+    });
+    this.LoanService.selectedLoanId$.subscribe((loanID) => {
+      this.selectedLoanID = loanID;
     });
   }
   toggleFullScreen() {
