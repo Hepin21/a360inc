@@ -7,10 +7,15 @@ import { LoanService } from '../../Services/loan.service';
 })
 export class ConventionalComponent {
   selectedLoan: string = '';
+  selectedLoanID: number = 0;
+
   constructor(private LoanService: LoanService) {}
   ngOnInit(): void {
     this.LoanService.selectedLoan$.subscribe((loanName) => {
       this.selectedLoan = loanName;
+    });
+    this.LoanService.selectedLoanId$.subscribe((loanID) => {
+      this.selectedLoanID = loanID;
     });
   }
   

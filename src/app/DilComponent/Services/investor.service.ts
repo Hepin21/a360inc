@@ -13,13 +13,25 @@ export class InvestorService {
   setSelectedInvestor(investorName: string) {
     this.selectedInvestorSubject.next(investorName);
   }
-  private apiUrl =
-    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/dil/investor-types?loan_type_id=1';
+
+  private selectedInvestorIDSubject: BehaviorSubject<number> =
+    new BehaviorSubject<number>(0);
+  public selectedInvestorID$: Observable<number> =
+    this.selectedInvestorIDSubject.asObservable();
+  setSelectedInvestorID(investorID: number) {
+    this.selectedInvestorIDSubject.next(investorID);
+  }
+
+  private baseUrl =
+    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/dil/investor-types';
 
   constructor(private http: HttpClient) {}
 
-  getInvestorTypes(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getInvestorTypes(loanID: number): Observable<any[]> {
+    console.log('me aya service me');
+    const apiUrl = `${this.baseUrl}?loan_type_id=${loanID}`;
+
+    return this.http.get<any[]>(apiUrl);
   }
   // fetchInvestorTypes(): Observable<any> {
   //   // Assuming you need to include an authorization token

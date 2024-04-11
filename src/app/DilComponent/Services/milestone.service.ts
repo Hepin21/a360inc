@@ -13,12 +13,22 @@ export class MilestoneService {
   setSelectedMilestone(milestoneName: string) {
     this.selectedMilestoneSubject.next(milestoneName);
   }
-  private apiUrl =
-    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/dil/milestones?loan_type_id=1&investor_type_id=1&client_id=29';
+
+  private selectedMilestoneIDSubject: BehaviorSubject<number> =
+    new BehaviorSubject<number>(0);
+  public selectedMilestoneId$: Observable<number> =
+    this.selectedMilestoneIDSubject.asObservable();
+  setSelectedMilestoneId(milestoneID: number) {
+    this.selectedMilestoneIDSubject.next(milestoneID);
+  }
+  private baseUrl =
+    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/dil/milestones';
 
   constructor(private http: HttpClient) {}
 
-  getMilestoneTypes(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getMilestoneTypes(loanID: number, investorID:number, clientID:number): Observable<any[]> {
+    console.log('me aya service me');
+    const apiUrl = `${this.baseUrl}?loan_type_id=${loanID}&investor_type_id=${investorID}&client_id=${clientID}`;
+    return this.http.get<any[]>(apiUrl);
   }
 }

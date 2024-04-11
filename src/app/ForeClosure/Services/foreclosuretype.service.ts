@@ -20,6 +20,7 @@ export class ForeclosuretypeService {
   setSelectedF_CID(fcID: number) {
     this.selectedForeclosuretypeIdSubject.next(fcID);
   }
+  
   private baseUrl =
     'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/foreclosure/foreclosure-types';
 

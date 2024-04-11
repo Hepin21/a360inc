@@ -21,13 +21,15 @@ export class ClientSelectionService {
   setSelectedClientId(clientID: number) {
     this.selectedClientIDSubject.next(clientID);
   }
-  private apiUrl =
-    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/dil/clients?loan_type_id=2&investor_type_id=2';
+  private baseUrl =
+    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/dil/clients';
 
   constructor(private http: HttpClient) {}
 
-  getClientTypes(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getClientTypes(loanID: number, investorID: number): Observable<any[]> {
+    console.log('me aya service me');
+    const apiUrl = `${this.baseUrl}?loan_type_id=${loanID}&investor_type_id=${investorID}`;
+    return this.http.get<any[]>(apiUrl);
   }
   // fetchInvestorTypes(): Observable<any> {
   //   // Assuming you need to include an authorization token

@@ -8,7 +8,7 @@ import { MilestoneService } from '../Services/milestone.service';
 })
 export class ForResultCardComponent {
   fees: any[] = [];
-  @Output() resultID: EventEmitter<number> = new EventEmitter<number>();
+  // @Output() resultID: EventEmitter<number> = new EventEmitter<number>();
 
   @Input() stateID: number = 0;
   @Input() foreclosureTypeId: number = 0;

@@ -16,7 +16,6 @@ import { ForeClosureComponent } from './ForeClosure/fore-closure/fore-closure.co
 import { DilResultComponent } from './DilComponent/dil-result/dil-result.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
-import { FeeSchedulesComponent } from './fee-schedules/fee-schedules.component';
 import { StateComponent } from './ForeClosure/StateType/state/state.component';
 
 const routes: Routes = [

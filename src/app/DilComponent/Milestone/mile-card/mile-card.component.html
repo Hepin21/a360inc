@@ -4,7 +4,7 @@
     *ngFor="let milestone of milestones"
     routerLinkActive="active"
     routerLink="/dil-result"
-    (click)="selectedMilestone(milestone.name)"
+    (click)="selectedMilestone(milestone.name, milestone.id)"
   >
     <p-card
       class="shadow-2 hover:shadow-8 surface-overlay"

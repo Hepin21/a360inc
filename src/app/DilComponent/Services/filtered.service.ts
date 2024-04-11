@@ -1,31 +1,28 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable} from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FilteredService {
-
-  private selectedFilteredSubject: BehaviorSubject<string> =
-    new BehaviorSubject<string>('');
-  public selectedFiltered$: Observable<string> =
-    this.selectedFilteredSubject.asObservable();
-  setSelectedFiltered(filtered: string) {
-    this.selectedFilteredSubject.next(filtered);
-  }
-  private apiUrl =
-    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/dil/filtered?loan_type_id=1&investor_type_id=1&client_id=29&milestone_id=139';
+  private baseUrl =
+    'https://beta-feeschedule.outamationlabs.com/api/v1/fee-schedule/dil/filtered';
 
   constructor(private http: HttpClient) {}
 
   // getDilFilteredData(): Observable<any[]> {
   //   return this.http.get<any[]>(this.apiUrl);
   // }
-  getDilFilteredData(): Observable<any> {
-    return this.http.get<any[]>(this.apiUrl);
+  getDilFilteredData(
+    loanID: number,
+    investorID: number,
+    clientID: number,
+    milestoneID: number
+  ): Observable<any> {
+    const apiUrl = `${this.baseUrl}?loan_type_id=${loanID}&investor_type_id=${investorID}&client_id=${clientID}&milestone_id=${milestoneID}`;
+    return this.http.get<any[]>(apiUrl);
   }
-  
 }
 // fetchFilteredData(): Observable<any> {
 //   // Assuming you need to include an authorization token

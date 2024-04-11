@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FilteredService } from '../Services/filtered.service';
 @Component({
   selector: 'app-result-card',
@@ -6,17 +6,22 @@ import { FilteredService } from '../Services/filtered.service';
   styleUrls: ['./result-card.component.scss']
 })
 export class ResultCardComponent {
-  dils: any[] = [];
+  dils: any = {}; // Change type to any for object
+  // @Output() milestoneID: EventEmitter<number> = new EventEmitter<number>();
+
+  @Input() loanID: number = 0;
+  @Input() investorID: number = 0;
+  @Input() clientID: number = 0;
+  @Input() milestoneID: number = 0;
   constructor(private filteredService:FilteredService ) { }
   selectForeClosure(resultData: string) {
-    this.filteredService.setSelectedFiltered(resultData);
   }
   ngOnInit(): void {
     this.DilloadData();
   }
   DilloadData(): void {
-    this.filteredService.getDilFilteredData().subscribe(
-      (data: any[]) => {
+    this.filteredService.getDilFilteredData(this.loanID, this.investorID, this.clientID, this.milestoneID).subscribe(
+      (data: any) => {
         this.dils = data;
       },
       (error) => {

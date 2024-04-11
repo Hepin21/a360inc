@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ForeclosuretypeService } from '../Services/foreclosuretype.service';
 import { StateService } from '../Services/state.service';
+
 @Component({
   selector: 'app-fc-card',
   templateUrl: './fc-card.component.html',

@@ -46,8 +46,6 @@ import { MilestoneTypeComponent } from './ForeClosure/MileStone/milestone-type/m
 import { ForResultComponent } from './ForeClosure/for-result/for-result.component';
 import { PanelModule } from 'primeng/panel';
 import { ForResultCardComponent } from './ForeClosure/for-result-card/for-result-card.component';
-import { createCustomElement } from '@angular/elements';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { CheckboxModule } from 'primeng/checkbox';
 import { ResultCardComponent } from './DilComponent/result-card/result-card.component';
 import { DilResultComponent } from './DilComponent/dil-result/dil-result.component';
@@ -57,7 +55,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { StateComponent } from './ForeClosure/StateType/state/state.component';
 import { StateCardComponent } from './ForeClosure/StateType/state-card/state-card.component';
 import { AddTokenInterceptor } from './Interceptor/add-token.interceptor';
-// import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -124,7 +122,7 @@ import { AddTokenInterceptor } from './Interceptor/add-token.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AddTokenInterceptor,
       multi: true,
-    },
+    },MessageService
   ],
   bootstrap: [AppComponent],
   // bootstrap: [],

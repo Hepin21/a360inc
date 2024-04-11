@@ -4,7 +4,7 @@
     *ngFor="let investor of investors"
     routerLinkActive="active"
     routerLink="/clients"
-    (click)="selectInvestor(investor.type)"
+    (click)="selectInvestor(investor.type, investor.id)"
   >
     <p-card
       class="shadow-2 hover:shadow-8 surface-overlay"
