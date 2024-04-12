@@ -21,7 +21,7 @@ export class FilteredService {
     milestoneID: number
   ): Observable<any> {
     const apiUrl = `${this.baseUrl}?loan_type_id=${loanID}&investor_type_id=${investorID}&client_id=${clientID}&milestone_id=${milestoneID}`;
-    return this.http.get<any[]>(apiUrl);
+    return this.http.get<any>(apiUrl);
   }
 }
 // fetchFilteredData(): Observable<any> {

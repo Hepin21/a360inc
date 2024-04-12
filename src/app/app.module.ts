@@ -56,6 +56,10 @@ import { StateComponent } from './ForeClosure/StateType/state/state.component';
 import { StateCardComponent } from './ForeClosure/StateType/state-card/state-card.component';
 import { AddTokenInterceptor } from './Interceptor/add-token.interceptor';
 import { MessageService } from 'primeng/api';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { SkeletonModule } from 'primeng/skeleton';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
+
 
 @NgModule({
   declarations: [
@@ -100,10 +104,12 @@ import { MessageService } from 'primeng/api';
     AppRoutingModule,
     RadioButtonModule,
     ButtonModule,
+    ProgressSpinnerModule,
     SidebarModule,
     BadgeModule,
     ToolbarModule,
     AvatarGroupModule,
+    SkeletonModule,
     AvatarModule,
     DividerModule,
     MenubarModule,
@@ -116,6 +122,8 @@ import { MessageService } from 'primeng/api';
     PanelModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({showForeground:true}),
   ],
   providers: [
     {

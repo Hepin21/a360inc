@@ -29,4 +29,8 @@ export class StateService {
   getStateTypes(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
   }
+  getStates(state:string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/states/search?q=${state}`);
+  }
+
 }

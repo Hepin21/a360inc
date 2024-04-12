@@ -3,7 +3,7 @@ import { StateService } from 'src/app/ForeClosure/Services/state.service';
 @Component({
   selector: 'app-state',
   templateUrl: './state.component.html',
-  styleUrls: ['./state.component.scss']
+  styleUrls: ['./state.component.scss'],
 })
 export class StateComponent {
   toggleFullScreen() {
