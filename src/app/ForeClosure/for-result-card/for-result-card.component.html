@@ -7,31 +7,31 @@
   </div>
   <div *ngFor="let fee of fees" class="flex flex-row flex-wrap">
     <div
-      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+      class="flex align-items-center justify-content-center w-11rem h-4rem bg-primary font-bold border-round mx-8 my-5"
     >
       <p-card
         [style]="{
-          width: '15rem',
+          width: '20rem',
           height: '7rem',
           'margin-right': '1rem',
           display: 'flex',
-          'justify-content': 'center',
+          'justify-content': 'left',
           'align-items': 'center'
         }"
       >
         <p class="text-600 text-sm font-semibold">TOTAL ALLOWABLE AMOUNT</p>
         <span class="text-900 text-xl font-semibold"
-          >${{ fee.total_allowable_amount }}</span
+          >${{ fee.total_allowable_amount | number:'1.2-2'}}</span
         >
       </p-card>
     </div>
 
     <div
-      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+      class="flex align-items-center justify-content-center w-11rem h-4rem bg-primary font-bold border-round mx-8 my-5"
     >
       <p-card
         [style]="{
-          width: '15rem',
+          width: '20rem',
           height: '7rem',
           'margin-right': '1rem',
           display: 'flex',
@@ -47,55 +47,55 @@
     </div>
 
     <div
-      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+      class="flex align-items-center justify-content-center w-11rem h-4rem bg-primary font-bold border-round mx-8 my-5"
     >
       <p-card
         [style]="{
-          width: '15rem',
+          width: '20rem',
           height: '7rem',
           'margin-right': '1rem',
           display: 'flex',
-          'justify-content': 'center',
+          'justify-content': 'left',
           'align-items': 'center'
         }"
       >
         <p class="text-600 text-sm font-semibold">MILESTONE ALLOWABLE AMOUNT</p>
         <span class="text-900 text-xl font-semibold"
-          >${{ fee.allowable_milestone_amount }}</span
+          >${{ fee.allowable_milestone_amount | number:'1.2-2'}}</span
         >
       </p-card>
     </div>
 
     <div
-      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+      class="flex align-items-center justify-content-center w-11rem h-4rem bg-primary font-bold border-round mx-8 my-5"
     >
       <p-card
         [style]="{
-          width: '15rem',
+          width: '20rem',
           height: '7rem',
           'margin-right': '1rem',
           display: 'flex',
-          'justify-content': 'center',
+          'justify-content': 'left',
           'align-items': 'center'
         }"
       >
         <p class="text-600 text-sm font-semibold">CURRENT BILLABLE AMOUNT</p>
         <span class="text-900 text-xl font-semibold"
-          >${{ fee.max_invoiceable_amount }}</span
+          >${{ fee.max_invoiceable_amount | number:'1.2-2'}}</span
         >
       </p-card>
     </div>
 
     <div
-      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+      class="flex align-items-center justify-content-center w-11rem h-4rem bg-primary font-bold border-round mx-8 my-5"
     >
       <p-card
         [style]="{
-          width: '15rem',
+          width: '20rem',
           height: '7rem',
           'margin-right': '1rem',
           display: 'flex',
-          'justify-content': 'center',
+          'justify-content': 'left',
           'align-items': 'center'
         }"
       >
@@ -103,32 +103,10 @@
           AMOUNT THAT SHOULD HAVE ALREADY BEEN BILLED
         </p>
         <span class="text-900 text-xl font-semibold">
-          <!-- ${{ fee.additional_state_level_instructions +"0.00"}} -->
-          ${{ fee.allowable_milestone_amount - fee.max_invoiceable_amount }}
+          ${{ (fee.allowable_milestone_amount - fee.max_invoiceable_amount) | number:'1.2-2'}}
         </span>
       </p-card>
     </div>
-    <!-- <div
-      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
-    >
-      <p-card
-        [style]="{
-          width: '15rem',
-          height: '7rem',
-          'margin-right': '1rem',
-          display: 'flex',
-          'justify-content': 'center',
-          'align-items': 'center'
-        }"
-      >
-        <p class="text-600 text-sm font-semibold">
-          INSTRUCTIONS AT LOAN TYPE LEVEL
-        </p>
-        <span class="text-900 text-xl font-semibold">
-          ${{ fee.additional_loan_type_instructions }}
-        </span>
-      </p-card>
-    </div> -->
   </div>
 
   <div class="flex justify-content-center flex-wrap">
@@ -144,7 +122,7 @@
       class="flex align-items-center justify-content-center font-bold border-round m-2"
     >
       <p style="font-size: x-large; color: #000">
-        Your Fee Schedule is complete!
+        Your Fee Schedule is Complete!
       </p>
     </div>
   </div>

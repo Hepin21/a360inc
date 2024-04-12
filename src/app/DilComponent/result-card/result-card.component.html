@@ -5,79 +5,79 @@
     Note: Please be sure to verify the fee amounts that have already been billed
     in your billing system !
   </div>
-  <div *ngFor="let dil of dils" class="flex flex-row flex-wrap">
+  <div *ngIf="dils" class="flex flex-row flex-wrap">
     <div
-      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+      class="flex align-items-center justify-content-center w-9rem h-4rem bg-primary font-bold border-round mx-8 my-5"
     >
       <p-card
         [style]="{
-          width: '15rem',
+          width: '18rem',
           height: '7rem',
           'margin-right': '1rem',
           display: 'flex',
-          'justify-content': 'center',
+          'justify-content': 'left',
           'align-items': 'center'
         }"
       >
         <p class="text-600 text-sm font-semibold">TOTAL ALLOWABLE AMOUNT</p>
         <span class="text-900 text-xl font-semibold"
-          >${{ dil.total_allowable_amount }}</span
+          >${{ dils.total_allowable_amount | number : "1.2-2" }}</span
         >
       </p-card>
     </div>
 
     <div
-      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+      class="flex align-items-center justify-content-center w-9rem h-4rem bg-primary font-bold border-round mx-8 my-5"
     >
       <p-card
         [style]="{
-          width: '15rem',
+          width: '18rem',
           height: '7rem',
           'margin-right': '1rem',
           display: 'flex',
-          'justify-content': 'center',
+          'justify-content': 'left',
           'align-items': 'center'
         }"
       >
-        <p class="text-600 text-sm font-semibold">ALLOWABLE %</p>
-        <span class="text-900 text-xl font-semibold"
-          >{{
-            (dil.max_allowed_percentage * 100).toFixed(0) + "% DIL Completed"
-          }}
-        </span>
+      <p class="text-600 text-sm font-semibold">ALLOWABLE %</p>
+      <span class="text-900 text-xl font-semibold"
+        >{{
+          (dils.max_allowed_percentage * 100).toFixed(0) +
+          "% " +
+          selectedMilestone
+        }}
+      </span>
       </p-card>
     </div>
 
     <div
-      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+      class="flex align-items-center justify-content-center w-9rem h-4rem bg-primary font-bold border-round mx-8 my-5"
     >
       <p-card
         [style]="{
-          width: '15rem',
+          width: '18rem',
           height: '7rem',
           'margin-right': '1rem',
           display: 'flex',
-          'justify-content': 'center',
+          'justify-content': 'left',
           'align-items': 'center'
         }"
       >
         <p class="text-600 text-sm font-semibold">MILESTONE ALLOWABLE AMOUNT</p>
         <span class="text-900 text-xl font-semibold"
-          >${{ dil.allowable_milestone_amount }}</span
-        >
+          >${{ dils.allowable_milestone_amount | number : "1.2-2" }}</span
+          >
       </p-card>
     </div>
 
     <div
-      class="flex align-items-center justify-content-center w-6rem h-4rem bg-primary font-bold border-round mx-8 my-5"
+      class="flex align-items-center justify-content-center h-4rem bg-primary font-bold border-round my-5"
     >
       <p-card
         [style]="{
-          width: '15rem',
-          height: '7rem',
-          'margin-right': '1rem',
+          height: '8rem',
           display: 'flex',
-          'justify-content': 'center',
+          'justify-content': 'left',
           'align-items': 'center'
         }"
       >
@@ -85,31 +85,29 @@
           INSTRUCTIONS AT LOAN TYPE LEVEL
         </p>
         <span class="text-900 text-xl font-semibold"
-          >${{ dil.additional_loan_type_instructions }}</span
-        >
+          >{{ dils.additional_loan_type_instructions }}
+        </span>
       </p-card>
     </div>
   </div>
-  <br />
   <br />
   <div class="flex justify-content-center flex-wrap">
     <div
       class="flex align-items-center justify-content-center font-bold border-round m-2"
     >
-      <i class="pi pi-check-circle text-4xl	font-bold text-green-600"></i>
+      <i class="pi pi-check-circle text-4xl font-bold text-green-600"></i>
     </div>
     <div
       class="flex align-items-center justify-content-center font-bold border-round m-2"
     >
       <p style="font-size: x-large; color: #000">
-        Your Fee Schedule is complete!
+        Your Fee Schedule is Complete!
       </p>
     </div>
   </div>
   <br />
-  <br />
   <div class="grid">
-    <div class="col" routerLink="/foremile">
+    <div class="col" routerLink="/milestone">
       <div class="text-center p-3 border-round-sm font-bold">
         <button
           pButton
@@ -119,7 +117,7 @@
         ></button>
       </div>
     </div>
-    <div class="col" routerLink="/state">
+    <div class="col" routerLink="/dilloan">
       <div class="text-center p-3 border-round-sm font-bold">
         <button
           pButton
