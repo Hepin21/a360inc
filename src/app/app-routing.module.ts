@@ -7,16 +7,16 @@ import { HomeComponent } from './home/home.component';
 import { ConventionalComponent } from './DilComponent/Investor/conventional/conventional.component';
 import { FnmaComponent } from './DilComponent/Client/fnma/fnma.component';
 import { MileStoneComponent } from './DilComponent/Milestone/mile-stone/mile-stone.component';
-import { LoanComponent } from './ForeClosure/LoanType/loan/loan.component';
-import { MilestoneTypeComponent } from './ForeClosure/MileStone/milestone-type/milestone-type.component';
-import { InvestorTypeComponent } from './ForeClosure/Investor/investor-type/investor-type.component';
-import { ClientTypeComponent } from './ForeClosure/Client/client-type/client-type.component';
+import { LoanComponent } from './ForeClosure/loan/loan.component';
+import { MilestoneTypeComponent } from './ForeClosure/milestone-type/milestone-type.component';
+import { InvestorTypeComponent } from './ForeClosure/investor-type/investor-type.component';
+import { ClientTypeComponent } from './ForeClosure/client-type/client-type.component';
 import { ForResultComponent } from './ForeClosure/for-result/for-result.component';
 import { ForeClosureComponent } from './ForeClosure/fore-closure/fore-closure.component';
 import { DilResultComponent } from './DilComponent/dil-result/dil-result.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
-import { StateComponent } from './ForeClosure/StateType/state/state.component';
+import { StateComponent } from './ForeClosure/state/state.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},

@@ -25,24 +25,15 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
-import { DilCardComponent } from './DilComponent/Loan/dil-card/dil-card.component';
 import { HomeComponent } from './home/home.component';
-import { FcCardComponent } from './ForeClosure/fc-card/fc-card.component';
 import { ConventionalComponent } from './DilComponent/Investor/conventional/conventional.component';
-import { ConvCardComponent } from './DilComponent/Investor/conv-card/conv-card.component';
 import { FnmaComponent } from './DilComponent/Client/fnma/fnma.component';
 import { ForeClosureComponent } from './ForeClosure/fore-closure/fore-closure.component';
-import { ClientNameComponent } from './DilComponent/Client/client-name/client-name.component';
 import { MileStoneComponent } from './DilComponent/Milestone/mile-stone/mile-stone.component';
-import { MileCardComponent } from './DilComponent/Milestone/mile-card/mile-card.component';
-import { ClientTypeComponent } from './ForeClosure/Client/client-type/client-type.component';
-import { LoanCardComponent } from './ForeClosure/LoanType/loan-card/loan-card.component';
-import { LoanComponent } from './ForeClosure/LoanType/loan/loan.component';
-import { InvestorCardComponent } from './ForeClosure/Investor/investor-card/investor-card.component';
-import { InvestorTypeComponent } from './ForeClosure/Investor/investor-type/investor-type.component';
-import { ClientCardComponent } from './ForeClosure/Client/client-card/client-card.component';
-import { MilestoneCardComponent } from './ForeClosure/MileStone/milestone-card/milestone-card.component';
-import { MilestoneTypeComponent } from './ForeClosure/MileStone/milestone-type/milestone-type.component';
+import { ClientTypeComponent } from './ForeClosure/client-type/client-type.component';
+import { LoanComponent } from './ForeClosure/loan/loan.component';
+import { InvestorTypeComponent } from './ForeClosure/investor-type/investor-type.component';
+import { MilestoneTypeComponent } from './ForeClosure/milestone-type/milestone-type.component';
 import { ForResultComponent } from './ForeClosure/for-result/for-result.component';
 import { PanelModule } from 'primeng/panel';
 import { ForResultCardComponent } from './ForeClosure/for-result-card/for-result-card.component';
@@ -52,14 +43,13 @@ import { DilResultComponent } from './DilComponent/dil-result/dil-result.compone
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
-import { StateComponent } from './ForeClosure/StateType/state/state.component';
-import { StateCardComponent } from './ForeClosure/StateType/state-card/state-card.component';
+import { StateComponent } from './ForeClosure/state/state.component';
 import { AddTokenInterceptor } from './Interceptor/add-token.interceptor';
 import { MessageService } from 'primeng/api';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { SkeletonModule } from 'primeng/skeleton';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
-
+import { ScrollPanelModule } from 'primeng/scrollpanel';
 
 @NgModule({
   declarations: [
@@ -69,37 +59,28 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
     LoanComponent,
     FeeSchedulesComponent,
     DILComponent,
-    DilCardComponent,
     HomeComponent,
-    FcCardComponent,
     ConventionalComponent,
-    ConvCardComponent,
     FnmaComponent,
     ForeClosureComponent,
-    ClientNameComponent,
     MileStoneComponent,
-    MileCardComponent,
     DilResultComponent,
     ResultCardComponent,
     ClientTypeComponent,
-    LoanCardComponent,
-    InvestorCardComponent,
     InvestorTypeComponent,
-    ClientCardComponent,
-    MilestoneCardComponent,
     MilestoneTypeComponent,
     ForResultComponent,
     ForResultCardComponent,
     LoginComponent,
     RegistrationComponent,
     StateComponent,
-    StateCardComponent,
   ],
   imports: [
-    BrowserModule, 
+    BrowserModule,
     ReactiveFormsModule,
     CheckboxModule,
     FormsModule,
+    ScrollPanelModule,
     PasswordModule,
     AppRoutingModule,
     RadioButtonModule,
@@ -123,14 +104,15 @@ import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
     BrowserAnimationsModule,
     HttpClientModule,
     NgxUiLoaderModule,
-    NgxUiLoaderHttpModule.forRoot({showForeground:true}),
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true }),
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AddTokenInterceptor,
       multi: true,
-    },MessageService
+    },
+    MessageService,
   ],
   bootstrap: [AppComponent],
   // bootstrap: [],

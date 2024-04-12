@@ -21,7 +21,7 @@
       >
         <p class="text-600 text-sm font-semibold">TOTAL ALLOWABLE AMOUNT</p>
         <span class="text-900 text-xl font-semibold"
-          >${{ fee.total_allowable_amount | number:'1.2-2'}}</span
+          >${{ fee.total_allowable_amount | number : "1.2-2" }}</span
         >
       </p-card>
     </div>
@@ -41,7 +41,9 @@
       >
         <p class="text-600 text-sm font-semibold">ALLOWABLE %</p>
         <span class="text-900 text-xl font-semibold">{{
-          (fee.max_allowed_percentage * 100).toFixed(0) + "% "+ selectedMilestone
+          (fee.max_allowed_percentage * 100).toFixed(0) +
+            "% " +
+            selectedMilestone
         }}</span>
       </p-card>
     </div>
@@ -61,7 +63,7 @@
       >
         <p class="text-600 text-sm font-semibold">MILESTONE ALLOWABLE AMOUNT</p>
         <span class="text-900 text-xl font-semibold"
-          >${{ fee.allowable_milestone_amount | number:'1.2-2'}}</span
+          >${{ fee.allowable_milestone_amount | number : "1.2-2" }}</span
         >
       </p-card>
     </div>
@@ -81,7 +83,7 @@
       >
         <p class="text-600 text-sm font-semibold">CURRENT BILLABLE AMOUNT</p>
         <span class="text-900 text-xl font-semibold"
-          >${{ fee.max_invoiceable_amount | number:'1.2-2'}}</span
+          >${{ fee.max_invoiceable_amount | number : "1.2-2" }}</span
         >
       </p-card>
     </div>
@@ -103,7 +105,10 @@
           AMOUNT THAT SHOULD HAVE ALREADY BEEN BILLED
         </p>
         <span class="text-900 text-xl font-semibold">
-          ${{ (fee.allowable_milestone_amount - fee.max_invoiceable_amount) | number:'1.2-2'}}
+          ${{
+            fee.allowable_milestone_amount - fee.max_invoiceable_amount
+              | number : "1.2-2"
+          }}
         </span>
       </p-card>
     </div>

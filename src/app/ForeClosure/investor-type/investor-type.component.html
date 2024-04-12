@@ -1,6 +1,5 @@
 <div style="display: flex">
   <div style="flex-grow: 1">
-    <!-- <app-header [title]="headerTitle" (titleChanged)="onTitleChanged($event)"></app-header> -->
     <app-header [title]="headerTitle"></app-header>
     <div class="content mt-3">
       <div class="grid nested-grid">
@@ -10,28 +9,32 @@
               <div
                 class="text-center p-3 border-round-sm text-blue-600 bg-blue-100 font-bold"
               >
-                ForeClosure Type
+                Investor Type
               </div>
             </div>
             <div class="col-9">
               <div class="p-inputgroup">
                 <span class="p-input-icon-left w-full">
                   <i class="pi pi-search"></i>
-                  <input class="w-full py-3 surface-300 text-blue-600 font-bold" pInputText type="text" placeholder="Search State" (input)="searchForetypes($event)" />
+                  <input
+                    class="w-full py-3 surface-300 text-blue-600 font-bold"
+                    pInputText
+                    type="text"
+                    placeholder="Search Investor"
+                  />
                 </span>
               </div>
             </div>
             <div class="col-12">
               <div class="flex align-content-evenly flex-wrap w-full">
-                <!-- <app-fc-card [stateID]="selectedStateID"></app-fc-card> -->
-                <!-- Foreclosure Type Cards -->
-                <div *ngIf="noForeClosureTypeFound" class="m-4 font-bold text-2xl">No ForeClosure Type found!</div>
+                <!-- <app-investor-card [foreclosureTypeId]="selectedForeclosuretypeID" [stateID]="selectedStateID" [loanID]="selectedLoanID"></app-investor-card> -->
+                <!-- Investor Cards -->
                 <div
                   class="flex align-items-center justify-content-center w-4rem h-2rem bg-primary font-bold border-round mx-8 my-5"
-                  *ngFor="let foretype of filteredForetypes"
                   routerLinkActive="active"
-                  routerLink="/loan"
-                  (click)="selectForeClosure(foretype.type, foretype.id)"
+                  routerLink="/client"
+                  *ngFor="let investor of investors"
+                  (click)="selectInvestor(investor.type, investor.id)"
                 >
                   <p-card
                     class="shadow-2 hover:shadow-8 surface-overlay"
@@ -51,10 +54,10 @@
                     >
                       <i class="pi pi-check fs-24"></i>
                     </p-avatar>
-                    <span>{{ foretype.type }}</span>
+                    <span>{{ investor.type }}</span>
                   </p-card>
                 </div>
-                <!-- End Foreclosure Type Cards -->
+                <!-- End Investor Cards -->
               </div>
             </div>
           </div>
@@ -62,14 +65,10 @@
         <div class="col-4">
           <!-- <div class="text-center p-3 border-round-sm h-full bg-primary font-bold">4</div> -->
           <p-panel>
-            <!-- <router-outlet></router-outlet> -->
-            <!-- Panel Header -->
-
+            <router-outlet></router-outlet>
             <ng-template pTemplate="header">
               <span class="font-bold text-xl ml-1">Foreclosure Progress</span>
             </ng-template>
-            <!-- Panel Icons -->
-
             <ng-template pTemplate="icons">
               <button
                 class="p-panel-header-icon p-link mr-2"
@@ -78,7 +77,6 @@
                 <span class="pi pi-refresh"></span>
               </button>
             </ng-template>
-            <!-- Panel Toolbars -->
             <p-toolbar>
               <div class="p-toolbar-group-start">
                 <i class="pi pi-check-circle font-bold text-green-600"></i>
@@ -91,18 +89,22 @@
             </p-toolbar>
             <p-toolbar>
               <div class="p-toolbar-group-start">
-                <i
-                  class="pi pi-exclamation-circle font-bold text-orange-600"
-                ></i>
+                <i class="pi pi-check-circle font-bold text-green-600"></i>
                 <span class="font-bold ml-2"> Foreclosure Type </span>
+                <span
+                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2"
+                  >{{ selectedForeclosuretype }}</span
+                >
               </div>
             </p-toolbar>
             <p-toolbar>
               <div class="p-toolbar-group-start">
-                <i
-                  class="pi pi-exclamation-circle font-bold text-orange-600"
-                ></i>
+                <i class="pi pi-check-circle font-bold text-green-600"></i>
                 <span class="font-bold ml-2"> Loan Type </span>
+                <span
+                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2"
+                  >{{ selectedLoan }}</span
+                >
               </div>
             </p-toolbar>
             <p-toolbar>

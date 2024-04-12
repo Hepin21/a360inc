@@ -26,11 +26,10 @@ export class AddTokenInterceptor implements HttpInterceptor {
     if (token) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${token}`
-        }
+          Authorization: `Bearer ${token}`,
+        },
       });
     }
-
     // console.log('Request intercepted');
     return next.handle(request).pipe(retry(0), catchError(this.errorHandle)); //* retry(1) Pop Up 2 times
   }
@@ -40,4 +39,3 @@ export class AddTokenInterceptor implements HttpInterceptor {
     return throwError(() => error.message || 'Server Error');
   }
 }
-
