@@ -21,6 +21,7 @@
                     pInputText
                     type="text"
                     placeholder="Search Investor"
+                    (input)="searchInvestor($event)"
                   />
                 </span>
               </div>
@@ -29,11 +30,15 @@
               <div class="flex align-content-evenly flex-wrap w-full">
                 <!-- <app-investor-card [foreclosureTypeId]="selectedForeclosuretypeID" [stateID]="selectedStateID" [loanID]="selectedLoanID"></app-investor-card> -->
                 <!-- Investor Cards -->
+                <div *ngIf="noInvestorFound" class="m-4 font-bold text-2xl">
+                  No Investor Type found!
+                </div>
+                
                 <div
                   class="flex align-items-center justify-content-center w-4rem h-2rem bg-primary font-bold border-round mx-8 my-5"
                   routerLinkActive="active"
                   routerLink="/client"
-                  *ngFor="let investor of investors"
+                  *ngFor="let investor of filteredInvestors"
                   (click)="selectInvestor(investor.type, investor.id)"
                 >
                   <p-card

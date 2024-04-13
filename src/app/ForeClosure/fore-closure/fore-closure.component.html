@@ -17,15 +17,24 @@
               <div class="p-inputgroup">
                 <span class="p-input-icon-left w-full">
                   <i class="pi pi-search"></i>
-                  <input class="w-full py-3 surface-300 text-blue-600 font-bold" pInputText type="text" placeholder="Search State" (input)="searchForetypes($event)" />
+                  <input
+                    class="w-full py-3 surface-300 text-blue-600 font-bold"
+                    pInputText
+                    type="text"
+                    placeholder="Search ForeClosure"
+                    (input)="searchForetypes($event)"
+                  />
                 </span>
               </div>
             </div>
             <div class="col-12">
               <div class="flex align-content-evenly flex-wrap w-full">
-                <!-- <app-fc-card [stateID]="selectedStateID"></app-fc-card> -->
-                <!-- Foreclosure Type Cards -->
-                <div *ngIf="noForeClosureTypeFound" class="m-4 font-bold text-2xl">No ForeClosure Type found!</div>
+                <div
+                  *ngIf="noForeClosureTypeFound"
+                  class="m-4 font-bold text-2xl"
+                >
+                  No ForeClosure Type found!
+                </div>
                 <div
                   class="flex align-items-center justify-content-center w-4rem h-2rem bg-primary font-bold border-round mx-8 my-5"
                   *ngFor="let foretype of filteredForetypes"

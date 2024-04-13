@@ -14,45 +14,54 @@
             </div>
             <div class="col-9">
               <div class="p-inputgroup">
-                <span class="p-input-icon-left w-full  ">
+                <span class="p-input-icon-left w-full">
                   <i class="pi pi-search"></i>
-                  <input class="w-full py-3 surface-300 text-blue-600 font-bold" pInputText type="text" placeholder="Search Milestone" />
-              </span>
+                  <input
+                    class="w-full py-3 surface-300 text-blue-600 font-bold"
+                    pInputText
+                    type="text"
+                    placeholder="Search Milestone"
+                    (input)="searchMilestones($event)"
+                  />
+                </span>
               </div>
             </div>
             <div class="col-12">
               <div class="flex align-content-evenly flex-wrap w-full">
                 <!-- <app-milestone-card [foreclosureTypeId]="selectedForeclosuretypeID" [stateID]="selectedStateID" [loanID]="selectedLoanID" [investorID]="selectedInvestorID" [clientID]="selectedClientID"></app-milestone-card> -->
-                 <!-- Milestone Cards -->
-                 <div
-                 class="flex align-items-center justify-content-center w-6rem h-3rem bg-primary font-bold border-round mx-8 my-5"
-                 routerLinkActive="active"
-                 routerLink="/fore-result"
-                 *ngFor="let milestone of milestones"
-                 (click)="selectMilestone(milestone.name, milestone.id)"
-               >
-                 <p-card
-                   class="shadow-2 hover:shadow-8 surface-overlay"
-                   [style]="{
-                     width: '15rem',
-                     height: '6rem',
-                     display: 'flex',
-                     'justify-content': 'left',
-                     'align-items': 'center'
-                   }"
-                 >
-                   <p-avatar
-                     class="flex-shrink-0 avatar-sm mr-2"
-                     shape="circle"
-                     size="normal"
-                     styleClass="bg-light"
-                   >
-                     <i class="pi pi-check fs-24"></i>
-                   </p-avatar>
-                   <span>{{ milestone.name }}</span>
-                 </p-card>
-               </div>
-               <!-- End Milestone Cards -->
+                <!-- Milestone Cards -->
+                <div *ngIf="noMilestonesFound" class="m-4 font-bold text-2xl">
+                  No Milestones Name found!
+                </div>
+                <div
+                  class="flex align-items-center justify-content-center w-6rem h-3rem bg-primary font-bold border-round mx-8 my-5"
+                  routerLinkActive="active"
+                  routerLink="/fore-result"
+                  *ngFor="let milestone of filteredMilestones"
+                  (click)="selectMilestone(milestone.name, milestone.id)"
+                >
+                  <p-card
+                    class="shadow-2 hover:shadow-8 surface-overlay"
+                    [style]="{
+                      width: '15rem',
+                      height: '6rem',
+                      display: 'flex',
+                      'justify-content': 'left',
+                      'align-items': 'center'
+                    }"
+                  >
+                    <p-avatar
+                      class="flex-shrink-0 avatar-sm mr-2"
+                      shape="circle"
+                      size="normal"
+                      styleClass="bg-light"
+                    >
+                      <i class="pi pi-check fs-24"></i>
+                    </p-avatar>
+                    <span>{{ milestone.name }}</span>
+                  </p-card>
+                </div>
+                <!-- End Milestone Cards -->
               </div>
             </div>
           </div>
@@ -65,7 +74,10 @@
               <span class="font-bold text-xl ml-1">Foreclosure Progress</span>
             </ng-template>
             <ng-template pTemplate="icons">
-              <button class="p-panel-header-icon p-link mr-2" routerLink="/state">
+              <button
+                class="p-panel-header-icon p-link mr-2"
+                routerLink="/state"
+              >
                 <span class="pi pi-refresh"></span>
               </button>
             </ng-template>
@@ -74,31 +86,39 @@
                 <i class="pi pi-check-circle font-bold text-green-600"></i>
                 <span class="font-bold ml-2"> State </span>
                 <span
-                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2">{{ selectedState }}</span>
-                </div>
-              </p-toolbar>
-              <p-toolbar>
-                <div class="p-toolbar-group-start">
-                  <i class="pi pi-check-circle font-bold text-green-600"></i>
-                  <span class="font-bold ml-2"> Foreclosure Type </span>
-                  <span
-                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2">{{ selectedForeclosuretype }}</span>
-                </div>
-              </p-toolbar>
-              <p-toolbar>
-                <div class="p-toolbar-group-start">
-                  <i class="pi pi-check-circle font-bold text-green-600"></i>
-                  <span class="font-bold ml-2"> Loan Type </span>
-                  <span
-                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2">{{ selectedLoan }}</span>
-                </div>
-              </p-toolbar>
-              <p-toolbar>
-                <div class="p-toolbar-group-start">
-                  <i class="pi pi-check-circle font-bold text-green-600"></i>
-                  <span class="font-bold ml-2"> Investor Type </span>
-                  <span
-                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2">{{ selectedInvestor }}</span>
+                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2"
+                  >{{ selectedState }}</span
+                >
+              </div>
+            </p-toolbar>
+            <p-toolbar>
+              <div class="p-toolbar-group-start">
+                <i class="pi pi-check-circle font-bold text-green-600"></i>
+                <span class="font-bold ml-2"> Foreclosure Type </span>
+                <span
+                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2"
+                  >{{ selectedForeclosuretype }}</span
+                >
+              </div>
+            </p-toolbar>
+            <p-toolbar>
+              <div class="p-toolbar-group-start">
+                <i class="pi pi-check-circle font-bold text-green-600"></i>
+                <span class="font-bold ml-2"> Loan Type </span>
+                <span
+                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2"
+                  >{{ selectedLoan }}</span
+                >
+              </div>
+            </p-toolbar>
+            <p-toolbar>
+              <div class="p-toolbar-group-start">
+                <i class="pi pi-check-circle font-bold text-green-600"></i>
+                <span class="font-bold ml-2"> Investor Type </span>
+                <span
+                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2"
+                  >{{ selectedInvestor }}</span
+                >
               </div>
             </p-toolbar>
             <p-toolbar>
@@ -106,12 +126,16 @@
                 <i class="pi pi-check-circle font-bold text-green-600"></i>
                 <span class="font-bold ml-2"> Client </span>
                 <span
-                class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2">{{ selectedClient }}</span>
+                  class="text-center px-1 border-round-sm text-blue-600 bg-blue-100 font-bold ml-2"
+                  >{{ selectedClient }}</span
+                >
               </div>
             </p-toolbar>
             <p-toolbar>
               <div class="p-toolbar-group-start">
-                <i class="pi pi-exclamation-circle font-bold text-orange-600"></i>
+                <i
+                  class="pi pi-exclamation-circle font-bold text-orange-600"
+                ></i>
                 <span class="font-bold ml-2"> Milestone </span>
               </div>
             </p-toolbar>

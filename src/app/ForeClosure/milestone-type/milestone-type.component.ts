@@ -93,6 +93,7 @@ export class MilestoneTypeComponent implements OnInit {
       }
     }
   }
+  filteredMilestones: any[] = [];
 
   loadMilestones(): void {
     this.milestoneService.getMilestoneTypes(
@@ -104,6 +105,7 @@ export class MilestoneTypeComponent implements OnInit {
     ).subscribe(
       (data: any[]) => {
         this.milestones = data;
+        this.filteredMilestones = data;
       },
       (error) => {
         console.error('Error fetching Milestone types:', error);
@@ -113,5 +115,21 @@ export class MilestoneTypeComponent implements OnInit {
   selectMilestone(milestoneName: string, milestoneID: number) {
     this.milestoneService.setSelectedMilestone(milestoneName);
     this.milestoneService.setSelectedMilestoneID(milestoneID);
+  }
+  noMilestonesFound: boolean = false;
+
+  searchMilestones(event: any): void {
+    const query: string = (event.target as HTMLInputElement).value;
+    if (query.trim() !== '') {
+      // Filter states based on query
+      this.filteredMilestones = this.milestones.filter((milestone) =>
+        milestone.name.toLowerCase().includes(query.toLowerCase())
+      );
+      this.noMilestonesFound = this.filteredMilestones.length === 0; // Check if any states are found
+    } else {
+      // If query is empty, display all states
+      this.filteredMilestones = this.milestones;
+      this.noMilestonesFound = false; // Reset noStatesFound if query is empty
+    }
   }
 }

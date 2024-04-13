@@ -73,6 +73,8 @@ export class ClientTypeComponent implements OnInit {
 
     this.loadClients();
   }
+  filteredClients: any[] = [];
+
   loadClients(): void {
     this.clientSelectionService
       .getClientTypes(
@@ -84,6 +86,7 @@ export class ClientTypeComponent implements OnInit {
       .subscribe(
         (data: any[]) => {
           this.clients = data;
+          this.filteredClients = data;
         },
         (error) => {
           console.error('Error fetching Clients types:', error);
@@ -105,5 +108,22 @@ export class ClientTypeComponent implements OnInit {
   selectClient(clientName: string, clientID: number) {
     this.clientSelectionService.setSelectedClient(clientName);
     this.clientSelectionService.setSelectedClientId(clientID);
+  }
+
+  noClientsFound: boolean = false;
+
+  searchClients(event: any): void {
+    const query: string = (event.target as HTMLInputElement).value;
+    if (query.trim() !== '') {
+      // Filter states based on query
+      this.filteredClients = this.clients.filter((clients) =>
+        clients.name.toLowerCase().includes(query.toLowerCase())
+      );
+      this.noClientsFound = this.filteredClients.length === 0; // Check if any states are found
+    } else {
+      // If query is empty, display all states
+      this.filteredClients = this.clients;
+      this.noClientsFound = false; // Reset noStatesFound if query is empty
+    }
   }
 }

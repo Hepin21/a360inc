@@ -50,16 +50,6 @@ export class InvestorTypeComponent implements OnInit {
 
     this.loadInvestors();
   }
-  loadInvestors(): void {
-    this.investorService.getInvestorTypes(this.selectedStateID, this.selectedForeclosuretypeID, this.selectedLoanID).subscribe(
-      (data: any[]) => {
-        this.investors = data;
-      },
-      (error) => {
-        console.error('Error fetching Investor types:', error);
-      }
-    );
-  }
   toggleFullScreen() {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen(); //
@@ -69,11 +59,41 @@ export class InvestorTypeComponent implements OnInit {
       }
     }
   }
+  filteredInvestors: any[] = [];
+
+  loadInvestors(): void {
+    this.investorService.getInvestorTypes(this.selectedStateID, this.selectedForeclosuretypeID, this.selectedLoanID).subscribe(
+      (data: any[]) => {
+        this.investors = data;
+        this.filteredInvestors = data;
+      },
+      (error) => {
+        console.error('Error fetching Investor types:', error);
+      }
+    );
+  }
   //This Code is Use for Header title Change
   headerTitle: string = 'Foreclosure Fee Schedule';
+ 
   selectInvestor(investorName: string, investorID: number) {
     this.investorService.setSelectedInvestor(investorName);
     this.investorService.setSelectedInvestorId(investorID);
   }
-  
+ 
+  noInvestorFound: boolean = false;
+
+  searchInvestor(event: any): void {
+    const query: string = (event.target as HTMLInputElement).value;
+    if (query.trim() !== '') {
+      // Filter states based on query
+      this.filteredInvestors = this.investors.filter((investor) =>
+        investor.type.toLowerCase().includes(query.toLowerCase())
+      );
+      this.noInvestorFound = this.filteredInvestors.length === 0; // Check if any states are found
+    } else {
+      // If query is empty, display all states
+      this.filteredInvestors = this.investors;
+      this.noInvestorFound = false; // Reset noStatesFound if query is empty
+    }
+  }
 }

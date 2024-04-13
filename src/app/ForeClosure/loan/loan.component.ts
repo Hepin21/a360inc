@@ -8,45 +8,6 @@ import { LoanService } from '../Services/loan.service';
   templateUrl: './loan.component.html',
   styleUrls: ['./loan.component.scss'],
 })
-// export class LoanComponent {
-
-//   selectedState:string='';
-//   selectedStateID: number = 0;
-
-//   selectedForeclosuretypeID: number = 0;
-//   selectedForeclosuretype: string = '';
-  
-//   constructor(private stateService: StateService,
-//     private ForeclosuretypeService: ForeclosuretypeService){}
-//   ngOnInit():void{
-//     this.stateService.selectedState$.subscribe(stateName => {
-//       this.selectedState = stateName;
-//     });
-//     this.stateService.selectedStateId$.subscribe(stateID => {
-//       this.selectedStateID = stateID;
-//     });
-//      this.ForeclosuretypeService.selectedForeclosuretypeID$.subscribe(foreclosureTypeId => {
-//       this.selectedForeclosuretypeID = foreclosureTypeId;
-//     });
-//     this.ForeclosuretypeService.selectedForeclosuretype$.subscribe(foreclosureType => {
-//         this.selectedForeclosuretype = foreclosureType;
-//       }
-//     );
-//   }
-
-//   toggleFullScreen() {
-//     if (!document.fullscreenElement) {
-//       document.documentElement.requestFullscreen(); //
-//     } else {
-//       if (document.exitFullscreen) {
-//         document.exitFullscreen();
-//       }
-//     }
-//   }
-//   //This Code is Use for Header title Change
-//   headerTitle: string = 'Foreclosure Fee Schedule';
-// }
-
 
 export class LoanComponent implements OnInit {
 
@@ -89,11 +50,13 @@ export class LoanComponent implements OnInit {
       }
     }
   }
+  filteredLoans: any[] = [];
 
   loadLoans(): void {
     this.loanService.getLoanTypes(this.selectedStateID, this.selectedForeclosuretypeID).subscribe(
       (data: any[]) => {
         this.loans = data;
+        this.filteredLoans = data;
       },
       (error) => {
         console.error('Error fetching Loans types:', error);
@@ -104,5 +67,21 @@ export class LoanComponent implements OnInit {
   selectLoan(loanName: string, loanID: number) {
     this.loanService.setSelectedLoan(loanName);
     this.loanService.setSelectedLoanId(loanID);
+  }
+  noLoansFound: boolean = false;
+
+  searchLoans(event: any): void {
+    const query: string = (event.target as HTMLInputElement).value;
+    if (query.trim() !== '') {
+      // Filter states based on query
+      this.filteredLoans = this.loans.filter((loans) =>
+        loans.type.toLowerCase().includes(query.toLowerCase())
+      );
+      this.noLoansFound = this.filteredLoans.length === 0; // Check if any states are found
+    } else {
+      // If query is empty, display all states
+      this.filteredLoans = this.loans;
+      this.noLoansFound = false; // Reset noStatesFound if query is empty
+    }
   }
 }
