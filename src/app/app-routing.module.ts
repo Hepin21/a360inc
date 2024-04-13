@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { HeaderComponent } from './header/header.component';
-import { DILComponent } from './DilComponent/Loan/dil/dil.component';
 import { HomeComponent } from './home/home.component';
-import { ConventionalComponent } from './DilComponent/Investor/conventional/conventional.component';
-import { FnmaComponent } from './DilComponent/Client/fnma/fnma.component';
-import { MileStoneComponent } from './DilComponent/Milestone/mile-stone/mile-stone.component';
+// import { FnmaComponent } from './DilComponent/fnma/fnma.component';
+import { MileStoneComponent } from './DilComponent/mile-stone/mile-stone.component';
 import { LoanComponent } from './ForeClosure/loan/loan.component';
 import { MilestoneTypeComponent } from './ForeClosure/milestone-type/milestone-type.component';
 import { InvestorTypeComponent } from './ForeClosure/investor-type/investor-type.component';
@@ -17,20 +15,23 @@ import { DilResultComponent } from './DilComponent/dil-result/dil-result.compone
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { StateComponent } from './ForeClosure/state/state.component';
+import { DILLoanComponent } from './DilComponent/dilloan/dilloan.component';
+import { InvestorComponent } from './DilComponent/Investor/investor.component';
+import { ClientComponent } from './DilComponent/client/client.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'app-side-nav', component: SideNavComponent },
   { path: 'app-header', component: HeaderComponent },
-  { path: 'dilloan', component: DILComponent },
+  { path: 'dilloan', component: DILLoanComponent },
   { path: 'state', component: StateComponent },
   { path: 'foreclosure', component: ForeClosureComponent },
-  { path: 'conventional', component: ConventionalComponent },
+  { path: 'dil-investor', component: InvestorComponent },
   { path: 'dil-result', component: DilResultComponent },
   { path: 'milestone', component: MileStoneComponent },
   { path: 'foremile', component: MilestoneTypeComponent },
   { path: 'investor', component: InvestorTypeComponent },
-  { path: 'clients', component: FnmaComponent },
+  { path: 'clients', component: ClientComponent },
   { path: 'loan', component: LoanComponent },
   { path: 'client', component: ClientTypeComponent },
   { path: 'fore-result', component: ForResultComponent },

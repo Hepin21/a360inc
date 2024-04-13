@@ -14,7 +14,6 @@ import { DividerModule } from 'primeng/divider';
 import { MenubarModule } from 'primeng/menubar';
 import { MenuModule } from 'primeng/menu';
 import { FeeSchedulesComponent } from './fee-schedules/fee-schedules.component';
-import { DILComponent } from './DilComponent/Loan/dil/dil.component';
 import { BadgeModule } from 'primeng/badge';
 import { CardModule } from 'primeng/card';
 import { StepsModule } from 'primeng/steps';
@@ -26,10 +25,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { HomeComponent } from './home/home.component';
-import { ConventionalComponent } from './DilComponent/Investor/conventional/conventional.component';
-import { FnmaComponent } from './DilComponent/Client/fnma/fnma.component';
+// import { ConventionalComponent, InvestorComponent } from './DilComponent/Investor/conventional/conventional.component';
+import { ClientComponent } from './DilComponent/client/client.component';
 import { ForeClosureComponent } from './ForeClosure/fore-closure/fore-closure.component';
-import { MileStoneComponent } from './DilComponent/Milestone/mile-stone/mile-stone.component';
+import { MileStoneComponent } from './DilComponent/mile-stone/mile-stone.component';
 import { ClientTypeComponent } from './ForeClosure/client-type/client-type.component';
 import { LoanComponent } from './ForeClosure/loan/loan.component';
 import { InvestorTypeComponent } from './ForeClosure/investor-type/investor-type.component';
@@ -50,6 +49,8 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { SkeletonModule } from 'primeng/skeleton';
 import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
+import { DILLoanComponent } from './DilComponent/dilloan/dilloan.component';
+import { InvestorComponent } from './DilComponent/Investor/investor.component';
 
 @NgModule({
   declarations: [
@@ -58,10 +59,10 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
     HeaderComponent,
     LoanComponent,
     FeeSchedulesComponent,
-    DILComponent,
+    DILLoanComponent,
     HomeComponent,
-    ConventionalComponent,
-    FnmaComponent,
+    InvestorComponent,
+    ClientComponent,
     ForeClosureComponent,
     MileStoneComponent,
     DilResultComponent,
