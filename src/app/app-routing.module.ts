@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-// import { FnmaComponent } from './DilComponent/fnma/fnma.component';
 import { MileStoneComponent } from './DilComponent/mile-stone/mile-stone.component';
 import { LoanComponent } from './ForeClosure/loan/loan.component';
 import { MilestoneTypeComponent } from './ForeClosure/milestone-type/milestone-type.component';

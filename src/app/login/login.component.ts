@@ -30,8 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    // if (this.loginForm.invalid) {
-    //   return;
+
     if (this.loginForm.invalid) {
       this.messageService.add({
         severity: 'error',
