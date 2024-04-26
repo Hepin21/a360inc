@@ -1,44 +1,3 @@
-// import { Component } from '@angular/core';
-// import { StateService } from 'src/app/ForeClosure/Services/state.service';
-// @Component({
-//   selector: 'app-fore-closure',
-//   templateUrl: './fore-closure.component.html',
-//   styleUrls: ['./fore-closure.component.scss'],
-// })
-// export class ForeClosureComponent {
-//   // value: string | undefined;
-//   //* This is For the Progress Panel
-//   selectedState:string='';
-//   selectedStateID: number = 0;
-
-//   constructor(private stateService: StateService){}
-//   ngOnInit():void{
-//     this.stateService.selectedState$.subscribe(stateName => {
-//       this.selectedState = stateName;
-//     });
-//     this.stateService.selectedStateId$.subscribe(stateID => {
-//       this.selectedStateID = stateID;
-//     });
-//   }
-//   toggleFullScreen() {
-//     if (!document.fullscreenElement) {
-//       document.documentElement.requestFullscreen(); //
-//     } else {
-//       if (document.exitFullscreen) {
-//         document.exitFullscreen();
-//       }
-//     }
-//   }
-
-//   //This Code is Use for Header title Change
-//   headerTitle: string = 'Foreclosure Fee Schedule';
-
-//   // onTitleChanged(newTitle: string) {
-//   //   this.headerTitle = newTitle;
-//   // }
-// }
-
-
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ForeclosuretypeService } from '../Services/foreclosuretype.service';
 import { StateService } from '../Services/state.service';
@@ -49,7 +8,7 @@ import { StateService } from '../Services/state.service';
   styleUrls: ['./fore-closure.component.scss'],
 })
 export class ForeClosureComponent implements OnInit {
-  selectedState:string='';
+  selectedState: string = '';
   selectedStateID: number = 0;
   headerTitle: string = 'Foreclosure Fee Schedule';
   foretypes: any[] = [];
@@ -61,10 +20,10 @@ export class ForeClosureComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.stateService.selectedState$.subscribe(stateName => {
+    this.stateService.selectedState$.subscribe((stateName) => {
       this.selectedState = stateName;
     });
-    this.stateService.selectedStateId$.subscribe(stateID => {
+    this.stateService.selectedStateId$.subscribe((stateID) => {
       this.selectedStateID = stateID;
       this.loadF_CType();
     });
@@ -81,21 +40,23 @@ export class ForeClosureComponent implements OnInit {
   }
 
   loadF_CType(): void {
-    this.foreclosuretypeService.getForeclosureTypes(this.selectedStateID).subscribe(
-      (data: any[]) => {
-        this.foretypes = data;
-        this.filteredForetypes = data;
-      },
-      (error) => {
-        console.error('Error fetching Foreclosuretype types:', error);
-      }
-    );
+    this.foreclosuretypeService
+      .getForeclosureTypes(this.selectedStateID)
+      .subscribe(
+        (data: any[]) => {
+          this.foretypes = data;
+          this.filteredForetypes = data;
+        },
+        (error) => {
+          console.error('Error fetching Foreclosuretype types:', error);
+        }
+      );
   }
   selectForeClosure(foreclosuretypeName: string, foreclosureTypeId: number) {
     this.foreclosuretypeService.setSelectedForeclosuretype(foreclosuretypeName);
     this.foreclosuretypeService.setSelectedF_CID(foreclosureTypeId);
   }
-  
+
   //* Search bar Logic
   noForeClosureTypeFound: boolean = false;
 

@@ -27,9 +27,6 @@ export class LoanService {
 
   constructor(private http: HttpClient) {}
 
-  // getLoanTypes(): Observable<any[]> {
-  //   return this.http.get<any[]>(this.apiUrl);
-  // }
   getLoanTypes(stateID: number, foreclosureTypeId: number): Observable<any[]> {
     console.log(' Me aya loan me state ' + stateID + ' Aur me aya fct ' + foreclosureTypeId);
     const apiUrl = `${this.baseUrl}?state_id=${stateID}&foreclosure_type_id=${foreclosureTypeId}`;

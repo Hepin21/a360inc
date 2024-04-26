@@ -25,7 +25,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 import { HomeComponent } from './home/home.component';
-// import { ConventionalComponent, InvestorComponent } from './DilComponent/Investor/conventional/conventional.component';
 import { ClientComponent } from './DilComponent/client/client.component';
 import { ForeClosureComponent } from './ForeClosure/fore-closure/fore-closure.component';
 import { MileStoneComponent } from './DilComponent/mile-stone/mile-stone.component';
@@ -116,22 +115,6 @@ import { InvestorComponent } from './DilComponent/Investor/investor.component';
     MessageService,
   ],
   bootstrap: [AppComponent],
-  // bootstrap: [],
-  // schemas: [
-  //   CUSTOM_ELEMENTS_SCHEMA
-  // ],
+
 })
 export class AppModule {}
-// export class AppModule implements DoBootstrap{
-
-//   constructor(private injector: Injector){}
-
-//   ngDoBootstrap(appRef : ApplicationRef): void {
-//       const webComp = createCustomElement(DilResultComponent,{injector: this.injector});
-//       customElements.define('add-webc', webComp);   //*Use for Create and Register Custom Web Component     direct ng build and compile this component
-//       // const showTodos = createCustomElement(TodosComponent,{injector: this.injector});
-//       // customElements.define('show-todos', showTodos);   //*Use for Create and Register Custom Web Component
-//       // const about = createCustomElement(AboutComponent,{injector: this.injector});
-//       // customElements.define('about-todos', about);   //*Use for Create and Register Custom Web Component
-//   }
-//  }

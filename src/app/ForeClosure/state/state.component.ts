@@ -8,6 +8,8 @@ import { StateService } from 'src/app/ForeClosure/Services/state.service';
 export class StateComponent {
   //This Code is Use for Header title Change
   headerTitle: string = 'Foreclosure Fee Schedule';
+
+  
   toggleFullScreen() {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen(); //

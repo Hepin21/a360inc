@@ -1,0 +1,20 @@
+/* Default max-height */
+.my-element {
+        // max-height: 443px;
+        max-height: 443px;
+      }
+      
+      /* Smaller max-height for smaller screen heights */
+      @media (max-height: 600px) {
+        .my-element {
+          max-height: 300px;
+        }
+      }
+      
+      /* Larger max-height for larger screen heights */
+      @media (min-height: 800px) {
+        .my-element {
+          max-height: 666px;
+        }
+      }
+      

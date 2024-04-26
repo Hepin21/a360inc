@@ -39,14 +39,14 @@
           'align-items': 'center'
         }"
       >
-      <p class="text-600 text-sm font-semibold">ALLOWABLE %</p>
-      <span class="text-900 text-xl font-semibold"
-        >{{
-          (dils.max_allowed_percentage * 100).toFixed(0) +
-          "% " +
-          selectedMilestone
-        }}
-      </span>
+        <p class="text-600 text-sm font-semibold">ALLOWABLE %</p>
+        <span class="text-900 text-xl font-semibold"
+          >{{
+            (dils.max_allowed_percentage * 100).toFixed(0) +
+              "% " +
+              selectedMilestone
+          }}
+        </span>
       </p-card>
     </div>
 
@@ -66,7 +66,7 @@
         <p class="text-600 text-sm font-semibold">MILESTONE ALLOWABLE AMOUNT</p>
         <span class="text-900 text-xl font-semibold"
           >${{ dils.allowable_milestone_amount | number : "1.2-2" }}</span
-          >
+        >
       </p-card>
     </div>
 
