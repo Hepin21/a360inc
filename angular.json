@@ -63,7 +63,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
+          "options": {     
             "port": 2100
           },
           "configurations": {

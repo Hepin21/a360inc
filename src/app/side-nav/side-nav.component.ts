@@ -2,14 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { Sidebar } from 'primeng/sidebar';
 import { MenuItem } from 'primeng/api';
 
-
-
 @Component({
   selector: 'app-side-nav',
   templateUrl: './side-nav.component.html',
   styleUrls: ['./side-nav.component.scss'],
 })
 export class SideNavComponent {
+
   tabItems: MenuItem[];
 
   constructor() {

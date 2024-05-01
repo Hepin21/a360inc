@@ -23,5 +23,9 @@ export class HeaderComponent {
         document.exitFullscreen(); 
       }
     }
+    this.fullscreen = !this.fullscreen; // Update fullscreen state
+  }
+  getFullscreenIcon() {
+    return this.fullscreen ? 'pi pi-window-minimize' : 'pi pi-window-maximize';
   }
 }

@@ -32,5 +32,4 @@ export class StateService {
   getStates(state:string): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/states/search?q=${state}`);
   }
-
 }

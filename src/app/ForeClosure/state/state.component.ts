@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { interval, startWith, map } from 'rxjs';
 import { StateService } from 'src/app/ForeClosure/Services/state.service';
 @Component({
   selector: 'app-state',
@@ -9,6 +10,11 @@ export class StateComponent {
   //This Code is Use for Header title Change
   headerTitle: string = 'Foreclosure Fee Schedule';
 
+  emojis: string[] = ['😵', '😱', '😖', '😕', '🙃', '😮','🫠'];
+  currentEmoji = interval(1000).pipe(
+    startWith(0), // Starts the sequence immediately
+    map(i => this.emojis[i % this.emojis.length])
+  );
   
   toggleFullScreen() {
     if (!document.fullscreenElement) {

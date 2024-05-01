@@ -1,7 +1,7 @@
 <div style="display: flex">
   <div style="flex-grow: 1">
     <app-header [title]="headerTitle"></app-header>
-    <div class="content mt-3">
+    <div class="content mt-2 overflow-x-hidden">
       <div class="grid nested-grid">
         <div class="col-8">
           <div class="grid">
@@ -17,38 +17,39 @@
                 <span class="p-input-icon-left w-full">
                   <i class="pi pi-search"></i>
                   <input
-                  class="w-full py-3 surface-300 text-blue-600 font-bold"
-                  pInputText
-                  type="text"
-                  placeholder="Search Milestone"
-                  (input)="searchMilestones($event)"
-                />
+                    class="w-full py-3 surface-300 text-blue-600 font-bold"
+                    pInputText
+                    type="text"
+                    placeholder="Search Milestone"
+                    (input)="searchMilestones($event)"
+                  />
                 </span>
               </div>
             </div>
             <div class="col-12">
               <div class="flex align-content-evenly flex-wrap w-full">
                 <div *ngIf="noMilestonesFound" class="m-4 font-bold text-2xl">
-                  No Milestones Name found!
+                  ❗No Milestones Name found😵
                 </div>
                 <div
-                    class="flex align-items-center justify-content-center w-4rem h-2rem bg-primary font-bold border-round mx-8 my-5"
-                    *ngFor="let milestone of filteredMilestones"
-                    routerLinkActive="active"
-                    routerLink="/dil-result"
-                    (click)="selectedMilestone(milestone.name, milestone.id)"
+                  class="flex align-items-center justify-content-center w-5rem h-2rem bg-primary font-bold border-round mx-8 my-5"
+                  *ngFor="let milestone of filteredMilestones"
+                  routerLinkActive="active"
+                  routerLink="/dil-result"
+                  (click)="selectedMilestone(milestone.name, milestone.id)"
+                >
+                  <p-card
+                    class="select-none cursor-pointer shadow-2 hover:shadow-7 surface-overlay"
+                    [style]="{
+                      width: '14rem',
+                      height: '5rem',
+                      display: 'flex',
+                      'justify-content': 'left',
+                      'align-items': 'center'
+                    }"
                   >
-                    <p-card
-                      class="select-none cursor-pointer shadow-2 hover:shadow-8 surface-overlay"
-                      [style]="{
-                        width: '13rem',
-                        height: '5rem',
-                        display: 'flex',
-                        'justify-content': 'left',
-                        'align-items': 'center'
-                      }"
-                    >
-                      <p-avatar
+                  <div class="inline-flex justify-content-center align-items-center" >
+                    <p-avatar
                         class="flex-shrink-0 avatar-sm mr-2"
                         shape="circle"
                         size="normal"
@@ -56,9 +57,10 @@
                       >
                         <i class="pi pi-check fs-24"></i>
                       </p-avatar>
-                      <span class="ml-2">{{ milestone.name }}</span>
-                    </p-card>
-                  </div>
+                      <span>{{ milestone.name }}</span>
+                    </div>
+                  </p-card>
+                </div>
               </div>
             </div>
           </div>
@@ -78,7 +80,10 @@
               </button>
             </ng-template>
             <p-toolbar>
-              <div class="p-toolbar-group-start select-none cursor-pointer" routerLink="/dilloan">
+              <div
+                class="p-toolbar-group-start select-none cursor-pointer"
+                routerLink="/dilloan"
+              >
                 <i class="pi pi-check-circle font-bold text-green-600"></i>
                 <span class="font-bold ml-2"> Loan Type </span>
                 <span
@@ -88,7 +93,10 @@
               </div>
             </p-toolbar>
             <p-toolbar>
-              <div class="p-toolbar-group-start select-none cursor-pointer" routerLink="/dil-investor">
+              <div
+                class="p-toolbar-group-start select-none cursor-pointer"
+                routerLink="/dil-investor"
+              >
                 <i class="pi pi-check-circle font-bold text-green-600"></i>
                 <span class="font-bold ml-2"> Investor Type </span>
                 <span
@@ -98,7 +106,10 @@
               </div>
             </p-toolbar>
             <p-toolbar>
-              <div class="p-toolbar-group-start select-none cursor-pointer" routerLink="/clients">
+              <div
+                class="p-toolbar-group-start select-none cursor-pointer"
+                routerLink="/clients"
+              >
                 <i class="pi pi-check-circle font-bold text-green-600"></i>
                 <span class="font-bold ml-2"> Client </span>
                 <span

@@ -1,20 +1,44 @@
 /* Default max-height */
 .my-element {
-        // max-height: 443px;
-        max-height: 443px;
-      }
-      
-      /* Smaller max-height for smaller screen heights */
-      @media (max-height: 600px) {
-        .my-element {
-          max-height: 300px;
-        }
-      }
-      
-      /* Larger max-height for larger screen heights */
-      @media (min-height: 800px) {
-        .my-element {
-          max-height: 666px;
-        }
-      }
-      
+  // max-height: 443px;
+  max-height: 545px;
+}
+
+/* Smaller max-height for smaller screen heights */
+@media (max-height: 600px) {
+  .my-element {
+    max-height: 300px;
+  }
+}
+
+/* Larger max-height for larger screen heights */
+@media (min-height: 800px) {
+  .my-element {
+    max-height: 805px;
+  }
+}
+.overflow-auto {
+  overflow-y: auto;
+}
+
+
+
+/* Smaller max-height for smaller screen heights */
+// @media (max-height: 600px) {
+//   .my-element {
+//     max-height: 300px;
+//   }
+// }
+
+// /* Intermediate max-height for medium screen heights */
+// @media (min-height: 601px) and (max-height: 799px) {
+//   .my-element {
+//     max-height: 450px; /* New intermediate size */
+// }
+
+// /* Larger max-height for larger screen heights */
+// @media (min-height: 800px) {
+//   .my-element {
+//     max-height: 805px;
+//   }
+// }
